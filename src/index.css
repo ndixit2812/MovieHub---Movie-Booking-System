@@ -1,0 +1,243 @@
+/* .navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+} */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+}
+
+/* navbar page css */
+
+.header {
+  background-color: rgba(2, 2, 11, 0.944);
+  padding: 15px 0px;
+  color: #fff;
+}
+
+.header .logo {
+  font-size: 30px;
+  color: gold;
+  font-weight: 500;
+}
+
+.header a {
+  color: gold;
+}
+
+.navbar-nav .nav-link {
+  color: gold;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #061af3 !important;
+}
+
+.navbar-nav .nav-link.active {
+  color: #ff0000 !important;
+}
+
+/* home page css  */
+
+.hero {
+  min-height: 100vh;
+  background-image: url("images/banner05.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.hero-content {
+  text-align: center;
+}
+
+.hero-content h2 {
+  color: rgb(14, 12, 2);
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+.hero-content p {
+  color: rgb(14, 12, 2);
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.navbar {
+  margin-bottom: 0 !important;
+}
+
+.hero {
+  margin-top: 0;
+}
+
+/* about page css */
+
+.about_page {
+  background-image: url("images/home_banner.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.about_title h2 {
+  text-align: center;
+  text-transform: capitalize;
+  font-weight: 500;
+  color: gold;
+  margin-top: 25px;
+}
+
+.about_description {
+  width: 60%;
+  margin-left: 20%;
+}
+
+.about_description p {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  margin-top: 25px;
+  color: #fff;
+}
+
+/* admin page css */
+
+.admin_header {
+  background-color: rgba(2, 2, 11, 0.944);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.admin_time {
+  font-size: 20px;
+  color: gold;
+  font-weight: 400;
+}
+
+.first_slot,
+.second_slot {
+  padding: 20px 15px;
+}
+
+.admin_profile {
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: capitalize;
+  color: gold;
+  margin: 0px 24px;
+}
+
+.admin_icon {
+  font-size: 20px;
+  font-weight: 400;
+  color: gold;
+}
+
+.main_admin_board {
+  width: 100vw;
+  height: 100vh;
+  background-color: #000000e7;
+  padding: 15px 0px;
+}
+
+.main_admin_board a {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: capitalize;
+  color: gold;
+}
+
+.main_admin_board hr {
+  color: gold;
+}
+
+.admin_board_icon {
+  font-size: 24px;
+  color: gold;
+  margin: 0px 10px;
+}
+
+.main_admin_board .side_bar {
+  border: 1px solid gold;
+  padding: 25px;
+}
+
+.side_bar {
+  position: relative;
+}
+
+.side_bar .box {
+  color: gold;
+}
+
+.box .title {
+  font-size: 28px;
+  text-align: center;
+}
+
+.side_bar .icon {
+  font-size: 24px;
+  color: gold;
+  position: absolute;
+  top: 5px;
+  right: 3px;
+}
+
+.main_user_board {
+  width: 100vw;
+  height: 86.6vh;
+  background-color: #000000e7;
+  padding: 15px 0px;
+}
+
+/* movie page css */
+
+.movie_board {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.movie_card_board img {
+  object-fit: cover;
+}
+
+.movie_card_board:hover {
+  box-shadow:
+    0 0 10px #00ffcc,
+    0 0 20px #00ffcc;
+}
+
+.movies_details_board .heading {
+  font-size: 18px;
+  text-transform: capitalize;
+  font-weight: 600;
+  color: #000;
+}
+
+.movies_details_board .content {
+  font-size: 18px;
+  text-transform: capitalize;
+  font-weight: 500;
+  color: #000000c9;
+}
