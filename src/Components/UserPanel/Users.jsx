@@ -4,7 +4,7 @@ import { FaUsersViewfinder } from "react-icons/fa6";
 import { TbReservedLine } from "react-icons/tb";
 import { GiTakeMyMoney } from "react-icons/gi";
 import { MdOutlineFeedback } from "react-icons/md";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
 import { LiaHandsHelpingSolid } from "react-icons/lia";
 import { GoX } from "react-icons/go";
@@ -16,18 +16,18 @@ const Users = () => {
   return (
     <>
       <div>
-        <div className="admin_header">
+        <div className="user_header">
           <nav>
             <div className="first_slot">
-              <span className="admin_time">{time}</span>
+              <span className="user_time">{time}</span>
             </div>
             <div className="second_slot">
-              <span className="admin_profile">
-                <FaUserCircle className="admin_icon" /> User
+              <span className="user_profile">
+                <FaUserCircle className="user_icon" /> User
               </span>
               <button
                 type="button"
-                class="btn btn-outline-warning"
+                class="btn btn-outline-danger"
                 onClick={() => navigate("/")}
               >
                 Logout
@@ -36,39 +36,41 @@ const Users = () => {
           </nav>
         </div>
       </div>
-      <div className="main_admin_board py-0">
+      <div className="main_user_board py-0">
         <div className="row">
           <div className="col-md-2">
-            <div className="container-fluid side_bar">
+            <div className="container-fluid user_side_bar">
               <span>
                 <GoX className="icon" />
               </span>
               <div className="box">
-                <span className="title">MovieHub</span>
+                <span className="title1">Movie</span>
+                <span className="title2">Hub</span>
+                <p>User panel</p>
               </div>
               <hr />
               <Link to="userProfile">
-                <CgProfile className="admin_board_icon" />
+                <CgProfile className="user_board_icon" />
                 My Profile
               </Link>
               <hr />
               <Link to="userBooking">
-                <TbReservedLine className="admin_board_icon" />
+                <TbReservedLine className="user_board_icon" />
                 My Bookings
               </Link>
               <hr />
               <Link to="userPayment">
-                <GiTakeMyMoney className="admin_board_icon" />
+                <GiTakeMyMoney className="user_board_icon" />
                 My Payments
               </Link>
               <hr />
               <Link to="userFeedback">
-                <MdOutlineFeedback className="admin_board_icon" />
+                <MdOutlineFeedback className="user_board_icon" />
                 FeedBack
               </Link>
               <hr />
               <Link to="userHelp">
-                <LiaHandsHelpingSolid className="admin_board_icon" />
+                <LiaHandsHelpingSolid className="user_board_icon" />
                 Need Help?
               </Link>
               <hr />
@@ -81,6 +83,7 @@ const Users = () => {
           </div>
         </div>
       </div>
+      <Outlet />
     </>
   );
 };

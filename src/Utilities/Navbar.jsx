@@ -4,10 +4,10 @@ import { NavLink } from "react-router-dom";
 const Navbar = () => {
   return (
     <>
-      <nav className="navbar navbar-expand-lg p-0 bg-body-tertiary">
+      <nav className="navbar navbar-expand-lg p-0  bg-body-tertiary">
         <div className="container-fluid header">
-          <span className="logo">MovieHub</span>
-
+          <span className="logo1">movie</span>
+          <span className="logo2">Hub</span>
           <div className="navbar-collapse">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item mx-3">
@@ -23,11 +23,6 @@ const Navbar = () => {
               <li className="nav-item mx-3">
                 <NavLink to="/movies" className="nav-link">
                   Movies
-                </NavLink>
-              </li>
-              <li className="nav-item mx-3">
-                <NavLink to="/bookings" className="nav-link">
-                  Bookings
                 </NavLink>
               </li>
               <li className="nav-item mx-3">
