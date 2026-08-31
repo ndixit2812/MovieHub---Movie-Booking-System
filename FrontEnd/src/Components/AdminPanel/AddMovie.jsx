@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const AVAILABLE_GENRES = [
   "Action",
@@ -45,6 +47,8 @@ const AddMovie = () => {
     status: "",
   });
 
+  const [selectedImage, setSelectedImage] = useState(null);
+
   // Handle addition for multi-choice arrays (Genre & Language)
   const handleMultiSelectChange = (fieldName, value) => {
     if (!value) return;
@@ -77,30 +81,66 @@ const AddMovie = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+
+    if (file) {
+      setSelectedImage(file);
+    }
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log("Movie Data:", movieData);
+    try {
+      if (!selectedImage) {
+        alert("Please select a movie image");
+        return;
+      }
 
-    // Later we will connect this with your backend API
-    // Example:
-    // axios.post("http://localhost:5000/api/movies", movieData);
+      const formData = new FormData();
 
-    alert("Movie added successfully!");
+      formData.append("title", movieData.title);
+      formData.append("description", movieData.description);
 
-    setMovieData({
-      title: "",
-      description: "",
-      image: "",
-      genre: [],
-      language: [],
-      duration: "",
-      releaseDate: "",
-      rating: "",
-      director: "",
-      movieType: "",
-      status: "",
-    });
+      formData.append("image", selectedImage);
+      formData.append("genre", JSON.stringify(movieData.genre));
+      formData.append("language", JSON.stringify(movieData.language));
+
+      formData.append("duration", movieData.duration);
+      formData.append("releaseDate", movieData.releaseDate);
+      formData.append("director", movieData.director);
+      formData.append("movieType", JSON.stringify([movieData.movieType]));
+      formData.append("rating", movieData.rating);
+      formData.append("status", movieData.status);
+
+      const response = await axios.post(
+        "http://localhost:5000/api/admin/addMovie",
+        formData,
+      );
+
+      console.log(response.data);
+      toast.success("Movie added successfully!");
+
+      setMovieData({
+        title: "",
+        description: "",
+        image: "",
+        genre: [],
+        language: [],
+        duration: "",
+        releaseDate: "",
+        rating: "",
+        director: "",
+        movieType: "",
+        status: "",
+      });
+
+      setSelectedImage(null);
+    } catch (error) {
+      console.error(error);
+      toast.error(error.response?.data?.message || "Failed to add movie");
+    }
   };
 
   const handleReset = () => {
@@ -117,6 +157,7 @@ const AddMovie = () => {
       movieType: "",
       status: "",
     });
+    setSelectedImage(null);
   };
 
   return (
@@ -315,9 +356,9 @@ const AddMovie = () => {
               required
             >
               <option value="">Select Status</option>
-              <option value="Upcoming">Upcoming</option>
-              <option value="Now Showing">Now Showing</option>
-              <option value="Ended">Ended</option>
+              <option value="upcoming">Upcoming</option>
+              <option value="now_showing">Now Showing</option>
+              <option value="completed">Completed</option>
             </select>
           </div>
 
@@ -325,17 +366,14 @@ const AddMovie = () => {
           <div className="col-md-12 mb-3">
             <label>Movie Image *</label>
             <input
-              type="text"
+              type="file"
               name="image"
               className="form-control"
-              placeholder="Enter movie image URL"
-              value={movieData.image}
-              onChange={handleChange}
+              accept="image/*"
+              onChange={handleImageChange}
               required
             />
-            <small className="text-muted">
-              Enter the URL of the movie poster/image.
-            </small>
+            <small className="text-muted">Select an image of the movie.</small>
           </div>
 
           {/* Description */}

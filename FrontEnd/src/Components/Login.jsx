@@ -23,7 +23,7 @@ const Login = () => {
         "http://localhost:5000/api/user/login",
         loginData,
       );
-      console.log(response.data);
+      // console.log(response.data);
 
       if (response.status === 200) {
         localStorage.setItem("token", response.data.token);
@@ -34,7 +34,7 @@ const Login = () => {
       console.log(error);
       toast.error(error.response?.data?.message || "Login Failed! ");
     }
-    console.log(loginData);
+    // console.log(loginData);
   };
 
   return (

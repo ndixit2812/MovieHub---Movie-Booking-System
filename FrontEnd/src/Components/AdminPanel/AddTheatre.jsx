@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
+import axios from "axios";
 
 const AddTheatre = () => {
   const [theatreData, setTheatreData] = useState({
@@ -10,6 +12,7 @@ const AddTheatre = () => {
     state: "",
     rating: "",
   });
+  const [theatreImage, setTheatreImage] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,26 +23,57 @@ const AddTheatre = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+
+    if (file) {
+      setTheatreImage(file);
+    }
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log("Theatre Data:", theatreData);
+    try {
+      if (!theatreImage) {
+        alert("Please select a theatre image");
+        return;
+      }
 
-    // Later we will connect this with your backend API
-    // Example:
-    // axios.post("http://localhost:5000/api/movies", movieData);
+      const formData = new FormData();
 
-    alert("Theatre added successfully!");
+      formData.append("name", theatreData.name);
+      formData.append("address", theatreData.address);
+      formData.append("city", theatreData.city);
+      formData.append("state", theatreData.state);
+      formData.append("pinCode", theatreData.pinCode);
+      formData.append("rating", theatreData.rating);
+      formData.append("image", theatreImage);
 
-    setTheatreData({
-      name: "",
-      image: "",
-      address: "",
-      city: "",
-      pinCode: "",
-      state: "",
-      rating: "",
-    });
+      const response = await axios.post(
+        "http://localhost:5000/api/admin/addTheatre",
+        formData,
+      );
+
+      console.log(response.data);
+      toast.success("Theatre Details added successfully!");
+
+      setTheatreData({
+        name: "",
+        image: "",
+        address: "",
+        city: "",
+        pinCode: "",
+        state: "",
+        rating: "",
+      });
+      setTheatreImage(null);
+    } catch (error) {
+      console.error(error);
+      toast.error(
+        error.response?.data?.message || "Failed to add Theatre Details",
+      );
+    }
   };
 
   const handleReset = () => {
@@ -52,6 +86,7 @@ const AddTheatre = () => {
       state: "",
       rating: "",
     });
+    setTheatreImage(null);
   };
 
   return (
@@ -139,30 +174,27 @@ const AddTheatre = () => {
               type="number"
               name="rating"
               className="form-control"
-              placeholder="Enter rating (0 - 10)"
+              placeholder="Enter rating (0 - 5)"
               min="0"
-              max="10"
+              max="5"
               step="0.1"
               value={theatreData.rating}
               onChange={handleChange}
             />
           </div>
 
-          {/* Movie Image */}
+          {/* theatre Image */}
           <div className="col-md-12 mb-3">
             <label>Theatre Image *</label>
             <input
-              type="text"
+              type="file"
               name="image"
               className="form-control"
-              placeholder="Enter theatre image URL"
-              value={theatreData.image}
-              onChange={handleChange}
+              accept="image/*"
+              onChange={handleImageChange}
               required
             />
-            <small className="text-muted">
-              Enter the URL of the theatre image.
-            </small>
+            <small className="text-muted">Select the theatre Image.</small>
           </div>
 
           {/* Buttons */}

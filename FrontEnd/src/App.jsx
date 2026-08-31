@@ -12,7 +12,7 @@ import Theatre from "./Components/AdminPanel/AddTheatre";
 import Booking from "./Components/AdminPanel/Booking";
 import Shows from "./Components/AdminPanel/Shows";
 import Seats from "./Components/AdminPanel/AddSeats";
-import Snacks from "./Components/AdminPanel/Snacks";
+import Snacks from "./Components/AdminPanel/AddSnack";
 import Feedback from "./Components/AdminPanel/Feedback";
 import Payments from "./Components/AdminPanel/Payments";
 import UserProfile from "./Components/UserPanel/UserProfile";
@@ -33,6 +33,7 @@ import AddScreen from "./Components/AdminPanel/AddScreen";
 import AddMovie from "./Components/AdminPanel/AddMovie";
 import AddTheatre from "./Components/AdminPanel/AddTheatre";
 import AddSeats from "./Components/AdminPanel/AddSeats";
+import AddSnack from "./Components/AdminPanel/AddSnack";
 
 const App = () => {
   return (
@@ -59,7 +60,7 @@ const App = () => {
           <Route path="shows" element={<Shows />} />
           <Route path="addScreen" element={<AddScreen />} />
           <Route path="seats" element={<AddSeats />} />
-          <Route path="snacks" element={<Snacks />} />
+          <Route path="snacks" element={<AddSnack />} />
           <Route path="feedback" element={<Feedback />} />
           <Route path="payment" element={<Payments />} />
         </Route>
