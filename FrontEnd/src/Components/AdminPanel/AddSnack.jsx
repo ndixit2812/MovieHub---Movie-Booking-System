@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { toast } from "react-toastify";
 import axios from "axios";
 
@@ -6,11 +6,14 @@ const AddSnack = () => {
   const [snackData, setSnackData] = useState({
     name: "",
     price: "",
-    quantity: "",
-    inStock: "",
+    description: "",
+    category: "",
+    status: "",
     image: "",
   });
   const [snackImage, setSnackImage] = useState(null);
+
+  const imageInputRef = useRef(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -42,8 +45,9 @@ const AddSnack = () => {
 
       formData.append("name", snackData.name);
       formData.append("price", snackData.price);
-      formData.append("inStock", snackData.inStock);
-
+      formData.append("description", snackData.description);
+      formData.append("category", snackData.category);
+      formData.append("status", snackData.status);
       formData.append("image", snackImage);
 
       const response = await axios.post(
@@ -53,15 +57,15 @@ const AddSnack = () => {
 
       console.log(response.data);
       toast.success("Snacks item is added successfully!");
-
-      setSnackData({
-        name: "",
-        image: "",
-        price: "",
-        quantity: "",
-        inStock: "",
-      });
-      setSnackImage(null);
+      handleReset();
+      // setSnackData({
+      //   name: "",
+      //   price: "",
+      //   description: "",
+      //   category: "",
+      //   status: "",
+      // });
+      // setSnackImage(null);
     } catch (error) {
       console.error(error);
       toast.error(error.response?.data?.message || "Failed to add item");
@@ -71,12 +75,16 @@ const AddSnack = () => {
   const handleReset = () => {
     setSnackData({
       name: "",
-      image: "",
       price: "",
-      quantity: "",
-      inStock: "",
+      description: "",
+      category: "",
+      status: "",
     });
     setSnackImage(null);
+
+    if (imageInputRef.current) {
+      imageInputRef.current.value = "";
+    }
   };
 
   return (
@@ -116,28 +124,36 @@ const AddSnack = () => {
           </div>
 
           <div className="col-md-6 mb-3">
-            <label>InStock *</label>
-            <input
-              type="text"
-              name="inStock"
-              className="form-control"
-              placeholder="Enter stock"
-              value={snackData.inStock}
+            <label>Category *</label>
+            <select
+              name="category"
+              className="form-select"
+              value={snackData.category}
               onChange={handleChange}
               required
-            />
+            >
+              <option value="">Select Category</option>
+              <option value="Popcorn">Pop Corn</option>
+              <option value="Beverage">Beverages</option>
+              <option value="Combo">Combo</option>
+              <option value="Snacks">Snacks</option>
+              <option value="Other">Others</option>
+            </select>
           </div>
 
           <div className="col-md-6 mb-3">
-            <label>Quantity *</label>
-            <input
-              type="text"
-              name="quantity"
-              className="form-control"
-              value={snackData.quantity}
+            <label>Status *</label>
+            <select
+              name="status"
+              className="form-select"
+              value={snackData.status}
               onChange={handleChange}
               required
-            />
+            >
+              <option value="">Select Status</option>
+              <option value="Active">Active</option>
+              <option value="Inactive">InActive</option>
+            </select>
           </div>
 
           {/* theatre Image */}
@@ -148,10 +164,25 @@ const AddSnack = () => {
               name="image"
               className="form-control"
               accept="image/*"
+              ref={imageInputRef}
               onChange={handleImageChange}
               required
             />
             <small className="text-muted">Select the snacks Image.</small>
+          </div>
+
+          {/* Description */}
+          <div className="col-md-12 mb-3">
+            <label>Description *</label>
+            <textarea
+              name="description"
+              className="form-control"
+              rows="3"
+              placeholder="Enter snacks description"
+              value={snackData.description}
+              onChange={handleChange}
+              required
+            ></textarea>
           </div>
 
           {/* Buttons */}

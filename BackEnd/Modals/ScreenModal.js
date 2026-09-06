@@ -8,10 +8,15 @@ const screenSchema = new mongoose.Schema(
       required: true,
     },
 
-    name: {
+    screenName: {
       type: String,
       required: true,
       trim: true,
+    },
+
+    image: {
+      type: String,
+      required: true,
     },
 
     screenType: {

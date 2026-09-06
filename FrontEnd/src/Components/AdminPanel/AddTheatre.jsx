@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { toast } from "react-toastify";
 import axios from "axios";
 
@@ -13,6 +13,8 @@ const AddTheatre = () => {
     rating: "",
   });
   const [theatreImage, setTheatreImage] = useState(null);
+
+  const imageInputRef = useRef(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -57,17 +59,17 @@ const AddTheatre = () => {
 
       console.log(response.data);
       toast.success("Theatre Details added successfully!");
-
-      setTheatreData({
-        name: "",
-        image: "",
-        address: "",
-        city: "",
-        pinCode: "",
-        state: "",
-        rating: "",
-      });
-      setTheatreImage(null);
+      handleReset();
+      // setTheatreData({
+      //   name: "",
+      //   image: "",
+      //   address: "",
+      //   city: "",
+      //   pinCode: "",
+      //   state: "",
+      //   rating: "",
+      // });
+      // setTheatreImage(null);
     } catch (error) {
       console.error(error);
       toast.error(
@@ -87,6 +89,10 @@ const AddTheatre = () => {
       rating: "",
     });
     setTheatreImage(null);
+
+    if (imageInputRef.current) {
+      imageInputRef.current.value = "";
+    }
   };
 
   return (
@@ -191,6 +197,7 @@ const AddTheatre = () => {
               name="image"
               className="form-control"
               accept="image/*"
+              ref={imageInputRef}
               onChange={handleImageChange}
               required
             />

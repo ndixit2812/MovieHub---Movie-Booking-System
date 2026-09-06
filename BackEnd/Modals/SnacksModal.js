@@ -1,30 +1,39 @@
 const mongoose = require("mongoose");
 
-const snacksSchema = new mongoose.Schema(
+const snackSchema = new mongoose.Schema(
   {
     name: {
       type: String,
       required: true,
       trim: true,
     },
-    price: {
-      type: Number,
-      required: true,
-      trim: true,
-    },
-    isAvailable: {
-      type: Boolean,
-      required: true,
-      trim: true,
-    },
-    quantity: {
-      type: Number,
-      required: true,
-      default: 1,
-    },
+
     image: {
       type: String,
       required: true,
+    },
+
+    description: {
+      type: String,
+      trim: true,
+    },
+
+    category: {
+      type: String,
+      enum: ["Popcorn", "Beverage", "Combo", "Snacks", "Other"],
+      required: true,
+    },
+
+    price: {
+      type: Number,
+      required: true,
+      min: 0,
+    },
+
+    status: {
+      type: String,
+      enum: ["Active", "Inactive"],
+      default: "Active",
     },
   },
   {
@@ -32,4 +41,4 @@ const snacksSchema = new mongoose.Schema(
   },
 );
 
-module.exports = mongoose.model("Snack", snacksSchema);
+module.exports = mongoose.model("Snack", snackSchema);

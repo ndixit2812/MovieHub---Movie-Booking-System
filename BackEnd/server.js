@@ -24,6 +24,7 @@ app.use("/api/user", require("./Routes/UserRoutes"));
 app.use("/api/admin", require("./Routes/MovieRoutes"));
 app.use("/api/admin", require("./Routes/TheatreRoutes"));
 app.use("/api/admin", require("./Routes/SnacksRoutes"));
+app.use("/api/admin", require("./Routes/ScreenRoutes"));
 
 // Routing set up for publically access
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));

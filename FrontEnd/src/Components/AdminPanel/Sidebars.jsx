@@ -66,7 +66,7 @@ const Sidebars = () => {
         <hr />
         <Link to="snacks">
           <IoFastFoodOutline className="admin_board_icon" />
-          Snacks
+          Add Snacks
         </Link>
         <hr />
         <Link to="feedback">

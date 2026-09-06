@@ -26,4 +26,20 @@ const addTheatre = async (req, res) => {
   }
 };
 
-module.exports = { addTheatre };
+const getAllTheatres = async (req, res) => {
+  try {
+    const allTheatres = await Theatre.find();
+    return res.status(200).json({
+      message: "All theatres fetched successfully",
+      theatres: allTheatres,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      message: "Failed to fetched all Theatres",
+      error: error.message,
+    });
+  }
+};
+
+module.exports = { addTheatre, getAllTheatres };

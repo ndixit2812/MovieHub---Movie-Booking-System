@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 
@@ -48,6 +48,8 @@ const AddMovie = () => {
   });
 
   const [selectedImage, setSelectedImage] = useState(null);
+
+  const imageInputRef = useRef(null);
 
   // Handle addition for multi-choice arrays (Genre & Language)
   const handleMultiSelectChange = (fieldName, value) => {
@@ -121,22 +123,22 @@ const AddMovie = () => {
 
       console.log(response.data);
       toast.success("Movie added successfully!");
+      handleReset();
+      // setMovieData({
+      //   title: "",
+      //   description: "",
+      //   image: "",
+      //   genre: [],
+      //   language: [],
+      //   duration: "",
+      //   releaseDate: "",
+      //   rating: "",
+      //   director: "",
+      //   movieType: "",
+      //   status: "",
+      // });
 
-      setMovieData({
-        title: "",
-        description: "",
-        image: "",
-        genre: [],
-        language: [],
-        duration: "",
-        releaseDate: "",
-        rating: "",
-        director: "",
-        movieType: "",
-        status: "",
-      });
-
-      setSelectedImage(null);
+      // setSelectedImage(null);
     } catch (error) {
       console.error(error);
       toast.error(error.response?.data?.message || "Failed to add movie");
@@ -158,6 +160,10 @@ const AddMovie = () => {
       status: "",
     });
     setSelectedImage(null);
+
+    if (imageInputRef.current) {
+      imageInputRef.current.value = "";
+    }
   };
 
   return (
@@ -370,6 +376,7 @@ const AddMovie = () => {
               name="image"
               className="form-control"
               accept="image/*"
+              ref={imageInputRef}
               onChange={handleImageChange}
               required
             />

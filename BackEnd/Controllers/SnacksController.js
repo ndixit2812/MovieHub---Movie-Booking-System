@@ -2,15 +2,16 @@ const Snack = require("../Modals/SnacksModal");
 
 const addSnacks = async (req, res) => {
   try {
-    const { name, price, isAvailable, quantity } = req.body;
+    const { name, price, status, description, category } = req.body;
 
     const imagePath = req.file ? req.file.path : null;
 
     const newSnack = new Snack({
       name,
       price,
-      isAvailable,
-      quantity,
+      status,
+      description,
+      category,
       image: imagePath,
     });
     await newSnack.save();
