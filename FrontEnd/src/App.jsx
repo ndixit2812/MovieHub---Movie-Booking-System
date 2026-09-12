@@ -44,7 +44,7 @@ const App = () => {
         <Route path="/movies" element={<MovieDisplay />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/movieDetails" element={<MovieDetails />} />
+        <Route path="/movieDetails/:id" element={<MovieDetails />} />
         <Route path="/selectShow/:id" element={<SelectShow />} />
         <Route path="/selectScreen/:id" element={<SelectScreen />} />
         <Route path="/selectSeat/:name" element={<SelectSeat />} />

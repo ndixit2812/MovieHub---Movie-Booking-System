@@ -9,7 +9,8 @@ const MovieCard = ({ itemValue, i }) => {
       <div className="movie_card_board">
         <div className="card" key={i} style={{ width: "13rem" }}>
           <img
-            src={itemValue.image}
+            // src={itemValue.imagePath}
+            src={`http://localhost:5000/${itemValue.imagePath.replace(/\\/g, "/")}`}
             className="card-img-top"
             alt="movie-image"
             width={210}
@@ -20,7 +21,7 @@ const MovieCard = ({ itemValue, i }) => {
               <button
                 type="button"
                 className="btn btn-outline-danger"
-                onClick={() => navigate("/movieDetails")}
+                onClick={() => navigate(`/movieDetails/${itemValue._id}`)}
               >
                 More Details...
               </button>

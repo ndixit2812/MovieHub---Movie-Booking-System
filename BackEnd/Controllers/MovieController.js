@@ -42,4 +42,35 @@ const addMovie = async (req, res) => {
   }
 };
 
-module.exports = { addMovie };
+const getAllMovies = async (req, res) => {
+  try {
+    const allMovies = await Movie.find();
+    return res
+      .status(201)
+      .json({ message: "All movies fetched successfully", movies: allMovies });
+  } catch (error) {
+    console.log(error);
+    res
+      .status(500)
+      .json({ message: "Failed to fetched movies", error: error.message });
+  }
+};
+
+const getMovieById = async (req, res) => {
+  try {
+    const itemId = req.params.id;
+
+    const movieData = await Movie.findById(itemId);
+
+    if (!movieData) {
+      return res.status(404).json({ message: "Movie not found" });
+    }
+
+    res.status(200).json(movieData);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Server Error", error: error.message });
+  }
+};
+
+module.exports = { addMovie, getAllMovies, getMovieById };

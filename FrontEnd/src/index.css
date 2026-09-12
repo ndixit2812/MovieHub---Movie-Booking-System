@@ -4,11 +4,21 @@
   box-sizing: border-box;
 }
 
+/* for .header class */
+/* background-color: rgba(2, 2, 11, 0.944); */
+/* background: linear-gradient(rgb(19, 1, 4), rgb(11, 2, 3)); */
+
 /* navbar page css */
 
+.sticky-navbar {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+
 .header {
-  /* background-color: rgba(2, 2, 11, 0.944); */
-  /* background: linear-gradient(rgb(19, 1, 4), rgb(11, 2, 3)); */
   background-color: #101015;
   padding: 18px 0px;
   color: #ff334f;
@@ -263,100 +273,6 @@
   font-weight: 400;
   color: grey;
   text-transform: uppercase;
-}
-
-/* SNACK SECTION */
-
-.snack_section {
-  background-color: #0b0b0f;
-  margin-top: 10px;
-  padding: 10px 0px;
-}
-
-.snack_section .para1 {
-  font-size: 18px;
-  font-weight: 400;
-  color: #e42440;
-  text-transform: uppercase;
-  text-align: center;
-  margin-top: 10px;
-}
-
-.snack_section .para2 {
-  font-size: 26px;
-  font-weight: 500;
-  color: #fff;
-  text-transform: capitalize;
-  text-align: center;
-}
-
-.snack_section .para2 span {
-  color: #e42440;
-  font-size: 32px;
-  font-weight: 400;
-  text-transform: capitalize;
-}
-
-.snack_main_board {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: calc(100% - 50px);
-  margin: 35px 25px;
-  padding: 30px 20px;
-  box-sizing: border-box;
-
-  gap: 35px;
-}
-
-.snack_main_board .snack_card {
-  flex: 1 1 0;
-  width: auto;
-  height: 355px;
-  padding: 0;
-  margin: 0;
-  background-color: #17171d;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-}
-
-.snack_main_board .snack_card .snack_image {
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-}
-
-.snack_main_board .snack_card .snack_image img {
-  width: 250px;
-  height: 250px;
-  max-width: 250px;
-  max-height: 250px;
-  margin: 0;
-  padding: 0;
-  display: block;
-  object-fit: cover;
-  border-radius: 8px;
-  float: none;
-}
-
-.snack_card {
-  transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease;
-}
-
-.snack_card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 25px rgba(228, 36, 64, 0.35);
 }
 
 /* home page css end  */
@@ -1003,6 +919,11 @@ input::placeholder {
   padding: 50px;
 }
 
+.md_img_board {
+  display: block;
+  margin: auto;
+}
+
 .movies_details_board p {
   font-size: 28px;
   color: #e42440;
@@ -1015,6 +936,14 @@ input::placeholder {
   border-radius: 10px;
 }
 
+.md_details_board {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+}
+
 .movieDetails_features img {
   object-fit: cover;
   object-position: top;
@@ -1022,7 +951,7 @@ input::placeholder {
 }
 
 .movieDetails_features .heading {
-  font-size: 16px;
+  font-size: 17px;
   text-transform: capitalize;
   font-weight: 400;
   color: #e42440;
@@ -1030,7 +959,7 @@ input::placeholder {
 }
 
 .movieDetails_features .content {
-  font-size: 15px;
+  font-size: 17px;
   text-transform: capitalize;
   font-weight: 400;
   color: #fff;

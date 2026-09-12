@@ -1,6 +1,7 @@
 import React from "react";
 import { ReactTyped } from "react-typed";
 import Navbar from "../Utilities/Navbar";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -25,7 +26,6 @@ const Home = () => {
             />
           </div>
         </section>
-
         {/* ================= NOW SHOWING MOVIES ================= */}
         <section className="showing_movies">
           <p>
@@ -78,7 +78,6 @@ const Home = () => {
             </div>
           </div>
         </section>
-
         {/* ================= UP COMING MOVIES ================= */}
         <section className="coming_movies">
           <p>
@@ -89,7 +88,7 @@ const Home = () => {
             <div className="movies_card">
               <div className="movie_image">
                 <img
-                  src="/Movies/m0.jpg"
+                  src="/Movies/m11.jpg"
                   alt="image"
                   width={300}
                   height={350}
@@ -104,7 +103,7 @@ const Home = () => {
             <div className="movies_card">
               <div className="movie_image">
                 <img
-                  src="/Movies/m4.jpg"
+                  src="/Movies/m12.jpg"
                   alt="image"
                   width={300}
                   height={350}
@@ -119,7 +118,7 @@ const Home = () => {
             <div className="movies_card">
               <div className="movie_image">
                 <img
-                  src="/Movies/m3.jpg"
+                  src="/Movies/m13.jpg"
                   alt="image"
                   width={300}
                   height={350}
@@ -131,7 +130,6 @@ const Home = () => {
             </div>
           </div>
         </section>
-
         {/* ================= POPULAR MOVIES ================= */}
         <section className="popular_movies">
           <p>
@@ -142,7 +140,7 @@ const Home = () => {
             <div className="movies_card">
               <div className="movie_image">
                 <img
-                  src="/Movies/m0.jpg"
+                  src="/Movies/m15.jpg"
                   alt="image"
                   width={300}
                   height={350}
@@ -157,7 +155,7 @@ const Home = () => {
             <div className="movies_card">
               <div className="movie_image">
                 <img
-                  src="/Movies/m4.jpg"
+                  src="/Movies/m16.webp"
                   alt="image"
                   width={300}
                   height={350}
@@ -172,7 +170,7 @@ const Home = () => {
             <div className="movies_card">
               <div className="movie_image">
                 <img
-                  src="/Movies/m3.jpg"
+                  src="/Movies/m18.webp"
                   alt="image"
                   width={300}
                   height={350}
@@ -240,40 +238,54 @@ const Home = () => {
             </div>
           </div>
         </section>
-
         {/* =========================SNACKS SECTION================================= */}
-        <section className="snack_section">
-          <p className="para1">Snacks</p>
-          <p className="para2">
-            <span>Taste & Entertainment</span> like <span>Snacks & Movie </span>
-            together
-          </p>
-          <div className="snack_main_board">
-            {/* snack 1 */}
-            <div className="snack_card">
-              <div className="snack_image">
-                <img src="/Snack/snack16.jpg" alt="image" />
+        <section className="about_intro section_padding">
+          <div className="container">
+            <div className="row align-items-center">
+              {/* IMAGE */}
+              <div className="col-lg-6 mb-4 mb-lg-0">
+                <div className="about_image_wrapper">
+                  <img
+                    src="/Snack/snack16.jpg"
+                    alt="image"
+                    className="img-fluid"
+                  />
+                </div>
               </div>
-            </div>
+              {/* SNACK CONTENT */}
+              <div className="col-lg-6">
+                <div className="about_content">
+                  <p className="section_small_title">SNACKS</p>
 
-            {/* Snack 2 */}
-            <div className="snack_card">
-              <div className="snack_image">
-                <img src="/Snack/snack24.jpg" alt="image" />
-              </div>
-            </div>
+                  <h2>
+                    <span>Taste & Entertainment </span> like
+                    <span> Snacks & Movie </span>
+                    together
+                  </h2>
 
-            {/* snack 3 */}
-            <div className="snack_card">
-              <div className="snack_image">
-                <img src="/Snack/snack25.jpg" alt="image" />
-              </div>
-            </div>
+                  <p>
+                    Snacks are an optional part of the MovieHub movie-booking
+                    experience, allowing users to enjoy their favorite food and
+                    beverages while watching a movie.
+                  </p>
 
-            {/* Snack 4 */}
-            <div className="snack_card">
-              <div className="snack_image">
-                <img src="/Snack/snack6.jpg" alt="image" />
+                  <p>
+                    MovieHub provides a convenient way for users to view
+                    available snacks along with important details such as the
+                    snack name, description, price, image, and availability
+                    status.
+                  </p>
+
+                  <p>
+                    The Snacks feature enhances the overall MovieHub experience
+                    by combining movie ticket booking and food selection into a
+                    single platform.
+                  </p>
+
+                  <Link to="/movies" className="about_btn">
+                    Explore Movies
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

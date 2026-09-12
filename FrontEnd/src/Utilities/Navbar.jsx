@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 const Navbar = () => {
   return (
     <>
-      <nav className="navbar navbar-expand-lg p-0  bg-body-tertiary">
+      <nav className="navbar navbar-expand-lg p-0  bg-body-tertiary sticky-navbar">
         <div className="container-fluid header">
           <span className="logo1">movie</span>
           <span className="logo2">Hub</span>
