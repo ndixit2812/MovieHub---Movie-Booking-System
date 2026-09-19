@@ -6,6 +6,8 @@ const addTheatre = async (req, res) => {
 
     const imagePath = req.file ? req.file.path : null;
 
+    // const imagePath = req.file ? req.file.path.replace(/\\/g, "/") : null;
+
     const newTheatre = new Theatre({
       name,
       address,

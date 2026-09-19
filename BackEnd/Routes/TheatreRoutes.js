@@ -9,6 +9,6 @@ const router = express.Router();
 
 router.post("/addTheatre", createUpload("theatre").single("image"), addTheatre);
 
-router.get("/getTheatres", getAllTheatres);
+router.get("/getAllTheatres", getAllTheatres);
 
 module.exports = router;

@@ -39,9 +39,14 @@ const Sidebars = () => {
           Add Theatre
         </Link>
         <hr />
-        <Link to="shows">
+        {/* <Link to="shows">
           <FaUsersViewfinder className="admin_board_icon" />
           Create Shows
+        </Link>
+        <hr /> */}
+        <Link to="shows">
+          <FaUsersViewfinder className="admin_board_icon" />
+          Add Show
         </Link>
         <hr />
         <Link to="addScreen">

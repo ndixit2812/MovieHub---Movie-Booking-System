@@ -6,6 +6,8 @@ const addSnacks = async (req, res) => {
 
     const imagePath = req.file ? req.file.path : null;
 
+    // const imagePath = req.file ? req.file.path.replace(/\\/g, "/") : null;
+
     const newSnack = new Snack({
       name,
       price,

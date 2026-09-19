@@ -25,6 +25,8 @@ app.use("/api/admin", require("./Routes/MovieRoutes"));
 app.use("/api/admin", require("./Routes/TheatreRoutes"));
 app.use("/api/admin", require("./Routes/SnacksRoutes"));
 app.use("/api/admin", require("./Routes/ScreenRoutes"));
+app.use("/api/admin", require("./Routes/ShowRoutes"));
+app.use("/api/admin", require("./Routes/ShowSeatRoutes"));
 
 app.use("/api/user", require("./Routes/MovieRoutes"));
 

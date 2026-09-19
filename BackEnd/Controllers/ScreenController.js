@@ -5,6 +5,8 @@ const addScreen = async (req, res) => {
     const { theatre, screenName, screenType, totalSeats, status } = req.body;
     const imagePath = req.file ? req.file.path : null;
 
+    // const imagePath = req.file ? req.file.path.replace(/\\/g, "/") : null;
+
     const newScreen = new Screen({
       theatre,
       screenName,
@@ -23,4 +25,25 @@ const addScreen = async (req, res) => {
   }
 };
 
-module.exports = { addScreen };
+const getScreensByTheatre = async (req, res) => {
+  try {
+    const { theatreId } = req.params;
+
+    const screens = await Screen.find({
+      theatre: theatreId,
+    });
+
+    res.status(200).json({
+      message: "Screens fetched successfully",
+      screens,
+    });
+  } catch (error) {
+    console.log(error);
+
+    res.status(500).json({
+      error: error.message,
+    });
+  }
+};
+
+module.exports = { addScreen, getScreensByTheatre };

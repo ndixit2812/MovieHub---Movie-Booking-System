@@ -21,6 +21,8 @@ const addMovie = async (req, res) => {
 
     const imagePath = req.file ? req.file.path : "";
 
+    // const imagePath = req.file ? req.file.path.replace(/\\/g, "/") : "";
+
     const newMovie = new Movie({
       title,
       description,
