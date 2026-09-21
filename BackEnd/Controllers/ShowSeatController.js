@@ -91,6 +91,25 @@ const generateShowSeats = async (req, res) => {
   }
 };
 
+const getShowSeats = async (req, res) => {
+  try {
+    const { showId } = req.params;
+
+    const showSeats = await ShowSeat.find({ show: showId });
+
+    res.status(200).json({
+      message: "Show seats fetched successfully",
+      showSeats,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "Error fetching show seats",
+      error: error.message,
+    });
+  }
+};
+
 module.exports = {
   generateShowSeats,
+  getShowSeats,
 };

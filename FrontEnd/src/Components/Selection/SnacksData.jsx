@@ -4,7 +4,7 @@ const snacks = [
     image: "/Snack/snack5.jpg",
     name: "Large Popcorn",
     category: "popcorn",
-    price: "250",
+    price: 250,
     isAvailable: true,
   },
   {
@@ -12,7 +12,7 @@ const snacks = [
     image: "/Snack/snack21.avif",
     name: "Dual SandWich",
     category: "sandwich",
-    price: "150",
+    price: 150,
     isAvailable: true,
   },
   {
@@ -20,7 +20,7 @@ const snacks = [
     image: "/Snack/snack24.jpg",
     name: "Large Burger",
     category: "burger",
-    price: "180",
+    price: 180,
     isAvailable: true,
   },
   {
@@ -28,7 +28,7 @@ const snacks = [
     image: "/Snack/snack27.avif",
     name: "Full Coffee",
     category: "coffee",
-    price: "250",
+    price: 250,
     isAvailable: true,
   },
   {
@@ -36,7 +36,7 @@ const snacks = [
     image: "/Snack/snack20.webp",
     name: "Full Pepsi",
     category: "pepsi",
-    price: "140",
+    price: 140,
     isAvailable: true,
   },
   {
@@ -44,7 +44,7 @@ const snacks = [
     image: "/Snack/snack17.webp",
     name: "Large Mocktail",
     category: "mocktail",
-    price: "190",
+    price: 190,
     isAvailable: true,
   },
   {
@@ -52,7 +52,7 @@ const snacks = [
     image: "/Snack/snack13.avif",
     name: "Full Cold Coffee",
     category: "coffee",
-    price: "140",
+    price: 140,
     isAvailable: true,
   },
   {
@@ -60,7 +60,7 @@ const snacks = [
     image: "/Snack/snack2.png",
     name: "small Potato Chips",
     category: "chips",
-    price: "110",
+    price: 110,
     isAvailable: true,
   },
   {
@@ -68,7 +68,7 @@ const snacks = [
     image: "/Snack/snack25.jpg",
     name: "Large Combo",
     category: "combo",
-    price: "240",
+    price: 240,
     isAvailable: true,
   },
 ];

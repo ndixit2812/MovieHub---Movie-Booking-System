@@ -2470,6 +2470,49 @@ nav {
   height: 48px;
 }
 
+/* Another layout css for SelectSeat Page Css */
+.seat-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.seat-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.seat {
+  width: 45px;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.seat.available {
+  background-color: white;
+}
+
+.seat.selected {
+  background-color: #0d6efd;
+  color: white;
+}
+
+.seat.locked {
+  background-color: #ffc107;
+  color: black;
+  cursor: not-allowed;
+}
+
+.seat.booked {
+  background-color: #dc3545;
+  color: white;
+  cursor: not-allowed;
+}
+
 /* selectSnacks page css */
 
 .selectSnacks_board {
