@@ -11,7 +11,7 @@ const MovieDisplay = () => {
   const handleGetAllMovies = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/user/getMovies",
+        "http://localhost:5000/api/user/getShowMovies",
       );
       setMovie(response.data.movies);
       console.log(response);
@@ -27,10 +27,10 @@ const MovieDisplay = () => {
   return (
     <>
       <Navbar />
-      <div className="container-fluid movie_display_board">
+      <div className="container-fluid mt-4 movie_display_board">
         <div className="container py-3 my-5 movie_board">
           {movie.map((item) => (
-            <MovieCard key={item.id} itemValue={item} />
+            <MovieCard key={item._id} itemValue={item} />
           ))}
         </div>
       </div>

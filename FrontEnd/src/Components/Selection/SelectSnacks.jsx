@@ -1,36 +1,45 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../../Utilities/Navbar";
-import snacks from "./SnacksData";
+import axios from "axios";
+// import snacks from "./SnacksData";
 
 const SelectSnacks = () => {
+  const [snacks, setSnacks] = useState([]);
   const [selectedSnacks, setSelectedSnacks] = useState([]);
   const [snackQuantities, setSnackQuantities] = useState({});
 
   const navigate = useNavigate();
   const location = useLocation();
 
-  const { showId, selectedSeats, seatTotal } = location.state || {};
+  const { showId, selectedSeats, selectedSeatDetails, seatTotal } =
+    location.state || {};
+
+  // fetching data from MongoDb
+  useEffect(() => {
+    const fetchSnacks = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:5000/api/admin/getSnacks",
+        );
+
+        setSnacks(response.data.snacks);
+        console.log(response.data);
+      } catch (error) {
+        console.log("Error fetching snacks:", error);
+      }
+    };
+
+    fetchSnacks();
+  }, []);
 
   // selct snacks functionality
-  // const handleSnackClick = (snack) => {
-  //   setSelectedSnacks((prevSnacks) => {
-  //     const exists = prevSnacks.find((item) => item.id === snack.id);
-
-  //     if (exists) {
-  //       return prevSnacks.filter((item) => item.id !== snack.id);
-  //     }
-
-  //     return [...prevSnacks, snack];
-  //   });
-  // };
-
   const handleSnackClick = (snack) => {
     setSelectedSnacks((prevSnacks) => {
-      const exists = prevSnacks.find((item) => item.id === snack.id);
+      const exists = prevSnacks.find((item) => item._id === snack._id);
 
       if (exists) {
-        return prevSnacks.filter((item) => item.id !== snack.id);
+        return prevSnacks.filter((item) => item._id !== snack._id);
       }
 
       return [...prevSnacks, snack];
@@ -38,13 +47,13 @@ const SelectSnacks = () => {
 
     setSnackQuantities((prev) => ({
       ...prev,
-      [snack.id]: prev[snack.id] || 1,
+      [snack._id]: prev[snack._id] || 1,
     }));
   };
 
   // Calculating snacks price which are added
   const snackTotal = selectedSnacks.reduce(
-    (total, snack) => total + snack.price * (snackQuantities[snack.id] || 0),
+    (total, snack) => total + snack.price * (snackQuantities[snack._id] || 0),
     0,
   );
 
@@ -54,12 +63,14 @@ const SelectSnacks = () => {
   // Continue button functionality
   const handleContinue = () => {
     // booking - summary;
-    navigate("/selectPayment", {
+    navigate("/bookingSummary", {
       state: {
         showId,
         selectedSeats,
         seatTotal,
         selectedSnacks,
+        selectedSeatDetails,
+        snackQuantities,
         snackTotal,
       },
     });
@@ -81,7 +92,7 @@ const SelectSnacks = () => {
 
       if (newQuantity === 0) {
         setSelectedSnacks((prevSnacks) =>
-          prevSnacks.filter((snack) => snack.id !== snackId),
+          prevSnacks.filter((snack) => snack._id !== snackId),
         );
       }
 
@@ -95,18 +106,24 @@ const SelectSnacks = () => {
   return (
     <>
       <Navbar />
-      <div className="container-fluid selectSnacks_board">
-        <div className="header mt-5">
-          <span className="span1">Add Some Snacks in your Show</span>
+      <div className="container-fluid selectSnacks_board ">
+        <div className="header ">
+          <span className="span1">
+            Add Some <strong>Snacks</strong> in your <strong>Show</strong>
+          </span>
+          <span className="span3">Snack Total: ₹{snackTotal}</span>
+          <span className="span3">Grand Total: ₹{grandTotal}</span>
           <span className="span2">
-            Do not Want
+            Do not Want?
             <Link
-              to="/selectPayment"
+              to="/bookingSummary"
               state={{
                 showId,
                 selectedSeats,
+                selectedSeatDetails,
                 seatTotal,
                 selectedSnacks: [],
+                snackQuantities: {},
                 snackTotal: 0,
               }}
             >
@@ -115,61 +132,66 @@ const SelectSnacks = () => {
           </span>
         </div>
         <div className="container my-5 snack_board">
-          <h4>Snack Total: ₹{snackTotal}</h4>
-          <h4>Grand Total: ₹{grandTotal}</h4>
-          {snacks.map((item) => (
+          <div className="snacks_box">
             <div className="row select_snack_main_frame ">
-              <div className="col-md-4">
-                <div className="snack_image">
-                  <img src={item.image} alt="image" width={200} height={200} />
+              {snacks.map((item) => (
+                <div className="col-md-6 snack_box_layout" key={item._id}>
+                  <div className="row snack_inner_box">
+                    <div className="col-md-4">
+                      <div className="snack_image">
+                        <img
+                          src={`http://localhost:5000/${item.image.replace(/\\/g, "/")}`}
+                          alt="image"
+                          width={125}
+                          height={125}
+                        />
+                      </div>
+                    </div>
+                    <div className="col-md-4">
+                      <div className="snack_content">
+                        <p>Name: {item.name}</p>
+                        <p>Price: {item.price}</p>
+                        <p>Description: {item.description}</p>
+                      </div>
+                    </div>
+
+                    <div className="col-md-3">
+                      <div className="snack_quantity">
+                        <span
+                          className="snack_quantity_minus"
+                          onClick={() => handleDecrease(item._id)}
+                        >
+                          -
+                        </span>
+                        <span className="snack_quantity_count">
+                          {snackQuantities[item._id] || 0}
+                        </span>
+                        <span
+                          className="snack_quantity_plus"
+                          onClick={() => handleIncrease(item._id)}
+                        >
+                          +
+                        </span>
+                      </div>
+                      <div className="snack_add_btn">
+                        <button
+                          key={item._id}
+                          onClick={() => handleSnackClick(item)}
+                        >
+                          Add Snacks
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div className="col-md-4">
-                <div className="snack_content">
-                  <p>Name: {item.name}</p>
-                  <p>Price: {item.price}</p>
-                  <p>isAvailable {item.isAvailable}</p>
-                </div>
-              </div>
-              <div className="col-md-4">
-                <div className="snack_quantity">
-                  <span
-                    className="snack_quantity_minus"
-                    onClick={() => handleDecrease(item.id)}
-                  >
-                    -
-                  </span>
-                  <span className="snack_quantity_count">
-                    {snackQuantities[item.id] || 0}
-                  </span>
-                  <span
-                    className="snack_quantity_plus"
-                    onClick={() => handleIncrease(item.id)}
-                  >
-                    +
-                  </span>
-                </div>
-                <div className="snack_add_btn">
-                  <button key={item.id} onClick={() => handleSnackClick(item)}>
-                    Add Snacks
-                  </button>
-                </div>
+              ))}
+
+              <div className="snack_boards_btn">
+                <button onClick={handleContinue}>Continue</button>
               </div>
             </div>
-          ))}
-
-          <div className="snack_boards_btn">
-            {/* <button onClick={() => navigate("/selectPayment")}>Next</button> */}
-            <button onClick={handleContinue}>Continue</button>
           </div>
         </div>
-        {/* <h4>Selected Snacks</h4>
-
-        {selectedSnacks.map((snack) => (
-          <p key={snack.id}>
-            {snack.name} - ₹{snack.price}
-          </p>
-        ))} */}
       </div>
     </>
   );

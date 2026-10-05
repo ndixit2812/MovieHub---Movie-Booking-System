@@ -29,7 +29,11 @@ app.use("/api/admin", require("./Routes/ShowRoutes"));
 app.use("/api/admin", require("./Routes/ShowSeatRoutes"));
 
 app.use("/api/user", require("./Routes/MovieRoutes"));
+app.use("/api/user", require("./Routes/TheatreRoutes"));
 app.use("/api/user", require("./Routes/ShowSeatRoutes"));
+app.use("/api/user", require("./Routes/ScreenRoutes"));
+
+app.use("/api/payment", require("./Routes/PaymentRoutes"));
 
 // Routing set up for publically access
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));

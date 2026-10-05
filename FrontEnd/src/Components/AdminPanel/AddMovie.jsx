@@ -124,21 +124,6 @@ const AddMovie = () => {
       console.log(response.data);
       toast.success("Movie added successfully!");
       handleReset();
-      // setMovieData({
-      //   title: "",
-      //   description: "",
-      //   image: "",
-      //   genre: [],
-      //   language: [],
-      //   duration: "",
-      //   releaseDate: "",
-      //   rating: "",
-      //   director: "",
-      //   movieType: "",
-      //   status: "",
-      // });
-
-      // setSelectedImage(null);
     } catch (error) {
       console.error(error);
       toast.error(error.response?.data?.message || "Failed to add movie");

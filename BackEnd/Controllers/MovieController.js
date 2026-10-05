@@ -1,4 +1,5 @@
 const Movie = require("../Modals/MovieModal");
+const Show = require("../Modals/ShowModal");
 
 const addMovie = async (req, res) => {
   try {
@@ -58,6 +59,35 @@ const getAllMovies = async (req, res) => {
   }
 };
 
+const getShowMovies = async (req, res) => {
+  try {
+    // Get movies from shows that are upcoming or ongoing
+    const shows = await Show.find({
+      status: { $in: ["upcoming", "ongoing"] },
+    });
+
+    // Get unique movie IDs
+    const movieIds = [...new Set(shows.map((show) => show.movie.toString()))];
+
+    // Get movie details
+    const allMovies = await Movie.find({
+      _id: { $in: movieIds },
+    });
+
+    return res.status(200).json({
+      message: "Movies with available shows fetched successfully",
+      movies: allMovies,
+    });
+  } catch (error) {
+    console.log(error);
+
+    return res.status(500).json({
+      message: "Failed to fetch movies",
+      error: error.message,
+    });
+  }
+};
+
 const getMovieById = async (req, res) => {
   try {
     const itemId = req.params.id;
@@ -75,4 +105,4 @@ const getMovieById = async (req, res) => {
   }
 };
 
-module.exports = { addMovie, getAllMovies, getMovieById };
+module.exports = { addMovie, getAllMovies, getMovieById, getShowMovies };

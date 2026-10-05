@@ -26,4 +26,20 @@ const addSnacks = async (req, res) => {
   }
 };
 
-module.exports = { addSnacks };
+const getAllSnacks = async (req, res) => {
+  try {
+    const snacks = await Snack.find();
+
+    res.status(200).json({
+      message: "Snacks fetched successfully",
+      snacks,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "Failed to fetch snacks",
+      error: error.message,
+    });
+  }
+};
+
+module.exports = { addSnacks, getAllSnacks };

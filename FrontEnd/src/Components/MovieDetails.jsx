@@ -40,8 +40,8 @@ const MovieDetails = () => {
     <>
       <Navbar />
       <div className="container-fluid movieDetails_main_frame">
-        <div className="container my-3 movies_details_board">
-          <p className="text-center my-4">Movie Details</p>
+        <div className="container mt-3 movies_details_board">
+          <p className="text-center mt-5">Movie Details</p>
           {movieItem ? (
             <div className="row text-center my-4 p-4 movieDetails_features">
               <div className="col-md-4 md_details_board">
@@ -69,8 +69,8 @@ const MovieDetails = () => {
                 <img
                   src={`http://localhost:5000/${movieItem.imagePath.replace(/\\/g, "/")}`}
                   alt="image"
-                  width={300}
-                  height={360}
+                  width={280}
+                  height={340}
                 />
               </div>
               <div className="col-md-4 md_details_board">
@@ -97,7 +97,7 @@ const MovieDetails = () => {
                   <button
                     type="button"
                     className="btn btn-danger w-25"
-                    onClick={() => navigate(`/selectShow/${movieItem.id}`)}
+                    onClick={() => navigate(`/selectTheatre/${movieItem._id}`)}
                   >
                     Book A Movie
                   </button>

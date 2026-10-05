@@ -1,4 +1,5 @@
 const Theatre = require("../Modals/TheatreModal");
+const Show = require("../Modals/ShowModal");
 
 const addTheatre = async (req, res) => {
   try {
@@ -44,4 +45,32 @@ const getAllTheatres = async (req, res) => {
   }
 };
 
-module.exports = { addTheatre, getAllTheatres };
+const getTheatresByMovie = async (req, res) => {
+  try {
+    const { movieId } = req.params;
+
+    const shows = await Show.find({ movie: movieId });
+
+    const theatreIds = [
+      ...new Set(shows.map((show) => show.theatre.toString())),
+    ];
+
+    const theatres = await Theatre.find({
+      _id: { $in: theatreIds },
+    });
+
+    return res.status(200).json({
+      message: "Theatres fetched successfully for this movie",
+      theatres,
+    });
+  } catch (error) {
+    console.log(error);
+
+    return res.status(500).json({
+      message: "Failed to fetch theatres for this movie",
+      error: error.message,
+    });
+  }
+};
+
+module.exports = { addTheatre, getAllTheatres, getTheatresByMovie };

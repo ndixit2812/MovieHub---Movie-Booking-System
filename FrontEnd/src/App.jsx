@@ -23,18 +23,22 @@ import UserHelp from "./Components/UserPanel/UserHelp";
 import MovieDisplay from "./Components/Movies/MovieDisplay";
 import MovieDetails from "./Components/MovieDetails";
 import Register from "./Components/Register";
-import SelectShow from "./Components/Selection/SelectShow";
+// import SelectShow from "./Components/Selection/SelectShow";
 import SelectScreen from "./Components/Selection/SelectScreen";
 import SelectSeat from "./Components/Selection/SelectSeat";
 import SelectSnacks from "./Components/Selection/SelectSnacks";
-import SelectPayment from "./Components/Selection/SelectPayment";
-import MakePayment from "./Components/Selection/MakePayment";
+// import SelectPayment from "./Components/Selection/SelectPayment";
+// import MakePayment from "./Components/Selection/MakePayment";
 import AddScreen from "./Components/AdminPanel/AddScreen";
 import AddMovie from "./Components/AdminPanel/AddMovie";
 import AddTheatre from "./Components/AdminPanel/AddTheatre";
 import AddSeats from "./Components/AdminPanel/AddSeats";
 import AddSnack from "./Components/AdminPanel/AddSnack";
 import AddShow from "./Components/AdminPanel/AddShow";
+import BookingSummary from "./Components/Selection/BookingSummary";
+import Payment from "./Components/Selection/Payment";
+import SelectTheatre from "./Components/Selection/SelectTheatre";
+import SelectShow from "./Components/Selection/SelectShow";
 
 const App = () => {
   return (
@@ -46,12 +50,19 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/movieDetails/:id" element={<MovieDetails />} />
-        <Route path="/selectShow/:id" element={<SelectShow />} />
-        <Route path="/selectScreen/:id" element={<SelectScreen />} />
-        <Route path="/selectSeat/:name" element={<SelectSeat />} />
+        <Route path="/selectTheatre/:id" element={<SelectTheatre />} />
+        <Route
+          path="/selectScreen/:movieId/:theatreId"
+          element={<SelectScreen />}
+        />
+        <Route
+          path="/selectShow/:movieId/:theatreId/:screenId"
+          element={<SelectShow />}
+        />
+        <Route path="/selectSeat/:showId" element={<SelectSeat />} />
         <Route path="/selectSnacks" element={<SelectSnacks />} />
-        <Route path="/selectPayment" element={<SelectPayment />} />
-        <Route path="/makePayment" element={<MakePayment />} />
+        <Route path="/bookingSummary" element={<BookingSummary />} />
+        <Route path="/payment" element={<Payment />} />
         {/* ********************************************************************************* */}
         <Route path="/admin" element={<Admin />}>
           <Route path="dashboard" element={<Dashboard />} />

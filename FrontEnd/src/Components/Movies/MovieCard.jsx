@@ -6,10 +6,9 @@ const MovieCard = ({ itemValue, i }) => {
 
   return (
     <>
-      <div className="movie_card_board">
+      <div className="movie_card_board ">
         <div className="card" key={i} style={{ width: "13rem" }}>
           <img
-            // src={itemValue.imagePath}
             src={`http://localhost:5000/${itemValue.imagePath.replace(/\\/g, "/")}`}
             className="card-img-top"
             alt="movie-image"
