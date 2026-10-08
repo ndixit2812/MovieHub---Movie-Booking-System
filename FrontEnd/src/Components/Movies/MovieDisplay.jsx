@@ -28,6 +28,7 @@ const MovieDisplay = () => {
     <>
       <Navbar />
       <div className="container-fluid mt-4 movie_display_board">
+        <h2>Available Movies for Show</h2>
         <div className="container py-3 my-5 movie_board">
           {movie.map((item) => (
             <MovieCard key={item._id} itemValue={item} />

@@ -316,8 +316,6 @@
 /* ************************************************************ */
 /* About page css start */
 
-/* MAIN ABOUT PAGE */
-
 .about_page {
   background-color: #0b0b0f;
   color: #ffffff;
@@ -328,18 +326,13 @@
   padding: 80px 0;
 }
 
-/* HERO SECTION */
-
 .about_hero {
   min-height: 360px;
-
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)),
     url("/images/home_banner.jpg");
-
   background-size: cover;
   background-position: center;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -369,15 +362,10 @@
 .about_hero_line {
   width: 80px;
   height: 4px;
-
   background-color: #e42440;
-
   margin: 25px auto 0;
-
   border-radius: 10px;
 }
-
-/*  ABOUT INTRO*/
 
 .about_intro {
   background-color: #0b0b0f;
@@ -386,16 +374,13 @@
 .about_image_wrapper {
   overflow: hidden;
   border-radius: 12px;
-
   box-shadow: 0 0 30px rgba(228, 36, 64, 0.15);
 }
 
 .about_image_wrapper img {
   width: 100%;
   height: 420px;
-
   object-fit: cover;
-
   transition: 0.4s ease;
 }
 
@@ -409,12 +394,9 @@
 
 .section_small_title {
   color: #e42440;
-
   font-size: 14px;
   font-weight: 700;
-
   letter-spacing: 2px;
-
   margin-bottom: 12px;
 }
 
@@ -423,9 +405,7 @@
 .moviehub_features h2 {
   font-size: 38px;
   font-weight: 700;
-
   line-height: 1.2;
-
   margin-bottom: 20px;
 }
 
@@ -437,60 +417,40 @@
 
 .about_content p {
   color: #aaaaaa;
-
   font-size: 16px;
   line-height: 1.8;
 }
 
-/* BUTTON */
-
 .about_btn {
   display: inline-block;
-
   margin-top: 15px;
-
   padding: 12px 25px;
-
   background-color: #e42440;
-
   color: #ffffff;
-
   text-decoration: none;
-
   border-radius: 5px;
-
   font-weight: 600;
-
   transition: 0.3s ease;
-
   box-shadow: 0 0 0 rgba(228, 36, 64, 0);
 }
 
 .about_btn:hover {
   color: #ffffff;
-
   transform: translateY(-3px);
-
   box-shadow:
     0 0 10px rgba(228, 36, 64, 0.6),
     0 0 25px rgba(228, 36, 64, 0.25);
 }
 
-/* SECTION HEADING*/
-
 .section_heading {
   max-width: 750px;
-
   margin: auto;
 }
 
 .section_heading > p:last-child {
   color: #999999;
-
   line-height: 1.7;
 }
-
-/*WHY MOVIEHUB*/
 
 .why_moviehub {
   background-color: #101015;
@@ -498,25 +458,17 @@
 
 .feature_card {
   height: 100%;
-
   padding: 30px 22px;
-
   background-color: #17171d;
-
   border: 1px solid #25252d;
-
   border-radius: 10px;
-
   text-align: center;
-
   transition: 0.35s ease;
 }
 
 .feature_card:hover {
   transform: translateY(-8px);
-
   border-color: #e42440;
-
   box-shadow:
     0 10px 30px rgba(0, 0, 0, 0.4),
     0 0 15px rgba(228, 36, 64, 0.15);
@@ -525,21 +477,14 @@
 .feature_icon {
   width: 65px;
   height: 65px;
-
   margin: 0 auto 20px;
-
   border-radius: 50%;
-
   background-color: rgba(228, 36, 64, 0.12);
-
   color: #e42440;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   font-size: 27px;
-
   transition: 0.3s ease;
 }
 
@@ -550,21 +495,15 @@
 
 .feature_card h4 {
   font-size: 19px;
-
   margin-bottom: 12px;
 }
 
 .feature_card p {
   color: #999999;
-
   font-size: 14px;
-
   line-height: 1.7;
-
   margin-bottom: 0;
 }
-
-/*HOW IT WORKS*/
 
 .how_it_works {
   background-color: #0b0b0f;
@@ -572,66 +511,46 @@
 
 .step_card {
   position: relative;
-
   height: 100%;
-
   padding: 30px 20px;
-
   text-align: center;
-
   background-color: #141419;
-
   border-radius: 10px;
-
   border: 1px solid #24242b;
-
   transition: 0.3s ease;
 }
 
 .step_card:hover {
   transform: translateY(-6px);
-
   border-color: #e42440;
 }
 
 .step_number {
   position: absolute;
-
   top: 12px;
   right: 15px;
-
   font-size: 14px;
-
   font-weight: 700;
-
   color: #55555d;
 }
 
 .step_icon {
   color: #e42440;
-
   font-size: 28px;
-
   margin: 15px 0;
 }
 
 .step_card h4 {
   font-size: 19px;
-
   margin-bottom: 12px;
 }
 
 .step_card p {
   color: #999999;
-
   font-size: 14px;
-
   line-height: 1.7;
-
   margin-bottom: 0;
 }
-
-/* FEATURES SECTION*/
 
 .moviehub_features {
   background-color: #101015;
@@ -639,79 +558,53 @@
 
 .features_intro {
   color: #999999;
-
   font-size: 16px;
-
   line-height: 1.8;
-
   margin-bottom: 25px;
 }
 
 .feature_list {
   display: flex;
-
   flex-direction: column;
-
   gap: 15px;
 }
 
 .feature_list_item {
   display: flex;
-
   align-items: center;
-
   gap: 12px;
-
   color: #dddddd;
-
   font-size: 15px;
 }
 
 .feature_list_item svg {
   color: #e42440;
-
   font-size: 17px;
 }
 
-/* EXPERIENCE BOX */
-
 .experience_box {
   min-height: 390px;
-
   padding: 50px;
-
   border-radius: 15px;
-
   background: linear-gradient(135deg, #19191f, #0e0e12);
-
   border: 1px solid #292930;
-
   display: flex;
-
   flex-direction: column;
-
   justify-content: center;
-
   align-items: center;
-
   text-align: center;
-
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .experience_icon {
   font-size: 45px;
-
   color: #e42440;
-
   margin-bottom: 25px;
 }
 
 .experience_box h3 {
   font-size: 30px;
-
   font-weight: 700;
-
   margin-bottom: 5px;
 }
 
@@ -721,11 +614,8 @@
 
 .experience_box p {
   color: #999999;
-
   margin-top: 15px;
 }
-
-/* CTA */
 
 .about_cta {
   padding: 80px 20px;
@@ -762,8 +652,6 @@
     0 0 12px rgba(228, 36, 64, 0.7),
     0 0 30px rgba(228, 36, 64, 0.25);
 }
-
-/* RESPONSIVE */
 
 @media (max-width: 991px) {
   .about_content {
@@ -814,7 +702,6 @@
 
   .experience_box {
     min-height: 320px;
-
     padding: 30px 20px;
   }
 
@@ -833,13 +720,13 @@
 
 /* About Page Css End */
 
-/* login Register page css */
+/* login & Register page css */
 
 .login_page_main_frame {
   background-color: #0b0b0f;
-  width: 100vw;
-  height: 100vh;
-  padding: 50px 0px;
+  min-height: 100vh;
+  padding: 30px 0px;
+  margin-top: 60px;
 }
 
 .form_layout {
@@ -909,7 +796,17 @@ input::placeholder {
 
 .movie_display_board {
   background-color: #0b0b0f;
-  padding: 50px;
+  min-height: 100vh;
+  padding: 50px 0px;
+}
+
+.movie_display_board h2 {
+  text-align: center;
+  color: #fff;
+  margin-top: 30px;
+  font-size: 24px;
+  font-weight: 400;
+  text-transform: capitalize;
 }
 
 .movie_board {
@@ -953,7 +850,8 @@ input::placeholder {
 
 .movieDetails_main_frame {
   background-color: #0b0b0f;
-  padding: 50px;
+  min-height: 100vh;
+  padding: 50px 0px;
 }
 
 .md_img_board {
@@ -962,8 +860,8 @@ input::placeholder {
 }
 
 .movies_details_board p {
-  font-size: 28px;
-  color: #e42440;
+  font-size: 24px;
+  color: #fff;
   font-weight: 400;
   text-transform: capitalize;
 }
@@ -1007,6 +905,7 @@ input::placeholder {
 
 .user_header {
   background-color: #101015;
+  /* min-height: 100vh; */
 }
 
 nav {
@@ -1628,14 +1527,12 @@ nav {
 
 /* ADMIN addMovie Page css start */
 
-/* Main Board */
 .add_movie_board {
   padding: 25px 30px;
   background-color: #f8f9fa;
   min-height: 100vh;
 }
 
-/* Header */
 .add_movie_header {
   margin-bottom: 25px;
   border-bottom: 1px solid #ddd;
@@ -1655,7 +1552,6 @@ nav {
   font-size: 14px;
 }
 
-/* Form */
 .add_movie_board form {
   background-color: #ffffff;
   padding: 30px;
@@ -1663,7 +1559,6 @@ nav {
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.08);
 }
 
-/* Labels */
 .add_movie_board label {
   display: block;
   margin-bottom: 7px;
@@ -1672,7 +1567,6 @@ nav {
   color: #333;
 }
 
-/* Inputs */
 .add_movie_board .form-control,
 .add_movie_board .form-select {
   min-height: 44px;
@@ -1687,7 +1581,6 @@ nav {
   resize: vertical;
 }
 
-/* Focus */
 .add_movie_board .form-control:focus,
 .add_movie_board .form-select:focus {
   border-color: #e42440;
@@ -1721,14 +1614,12 @@ nav {
   padding: 0px 2px;
 }
 
-/* Input Group */
 .add_movie_board .input-group-text {
   background-color: #f1f1f1;
   border-color: #d6d6d6;
   font-size: 14px;
 }
 
-/* Buttons Container */
 .add_movie_buttons {
   display: flex;
   justify-content: flex-end;
@@ -1738,7 +1629,6 @@ nav {
   border-top: 1px solid #eee;
 }
 
-/* Reset Button */
 .reset_movie_btn {
   min-width: 100px;
   height: 42px;
@@ -1754,7 +1644,6 @@ nav {
   background-color: #eeeeee;
 }
 
-/* Add Movie Button */
 .add_movie_btn {
   min-width: 130px;
   height: 42px;
@@ -1773,12 +1662,10 @@ nav {
   transform: translateY(-1px);
 }
 
-/* Small text */
 .add_movie_board small {
   font-size: 12px;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .add_movie_board {
     padding: 20px 15px;
@@ -1805,14 +1692,13 @@ nav {
 /* addMovie Page css end */
 
 /* addTheatre page css start */
-/* Main Board */
+
 .add_theatre_board {
   padding: 25px 30px;
   background-color: #f8f9fa;
   min-height: 100vh;
 }
 
-/* Header */
 .add_theatre_header {
   margin-bottom: 25px;
   border-bottom: 1px solid #ddd;
@@ -1832,7 +1718,6 @@ nav {
   font-size: 14px;
 }
 
-/* Form */
 .add_theatre_board form {
   background-color: #ffffff;
   padding: 30px;
@@ -1840,7 +1725,6 @@ nav {
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.08);
 }
 
-/* Labels */
 .add_theatre_board label {
   display: block;
   margin-bottom: 7px;
@@ -1849,7 +1733,6 @@ nav {
   color: #333;
 }
 
-/* Inputs */
 .add_theatre_board .form-control,
 .add_theatre_board .form-select {
   min-height: 44px;
@@ -1864,21 +1747,18 @@ nav {
   resize: vertical;
 }
 
-/* Focus */
 .add_theatre_board .form-control:focus,
 .add_theatre_board .form-select:focus {
   border-color: #e42440;
   box-shadow: 0 0 0 0.15rem rgba(228, 36, 64, 0.15);
 }
 
-/* Input Group */
 .add_theatre_board .input-group-text {
   background-color: #f1f1f1;
   border-color: #d6d6d6;
   font-size: 14px;
 }
 
-/* Buttons Container */
 .add_theatre_buttons {
   display: flex;
   justify-content: flex-end;
@@ -1888,7 +1768,6 @@ nav {
   border-top: 1px solid #eee;
 }
 
-/* Reset Button */
 .reset_theatre_btn {
   min-width: 100px;
   height: 42px;
@@ -1904,7 +1783,6 @@ nav {
   background-color: #eeeeee;
 }
 
-/* Add Movie Button */
 .add_theatre_btn {
   min-width: 130px;
   height: 42px;
@@ -1923,12 +1801,10 @@ nav {
   transform: translateY(-1px);
 }
 
-/* Small text */
 .add_theatre_board small {
   font-size: 12px;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .add_theatre_board {
     padding: 20px 15px;
@@ -1955,15 +1831,12 @@ nav {
 /* addTheatre page css end */
 
 /* addScreen page css start */
-
-/* Main Board */
 .add_screen_board {
   padding: 25px 30px;
   background-color: #f8f9fa;
   min-height: 100vh;
 }
 
-/* Header */
 .add_screen_header {
   margin-bottom: 25px;
   border-bottom: 1px solid #ddd;
@@ -1983,7 +1856,6 @@ nav {
   font-size: 14px;
 }
 
-/* Form */
 .add_screen_board form {
   background-color: #ffffff;
   padding: 30px;
@@ -1991,7 +1863,6 @@ nav {
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.08);
 }
 
-/* Labels */
 .add_screen_board label {
   display: block;
   margin-bottom: 7px;
@@ -2000,7 +1871,6 @@ nav {
   color: #333;
 }
 
-/* Inputs */
 .add_screen_board .form-control,
 .add_screen_board .form-select {
   min-height: 44px;
@@ -2010,21 +1880,18 @@ nav {
   transition: all 0.2s ease;
 }
 
-/* Focus */
 .add_screen_board .form-control:focus,
 .add_screen_board .form-select:focus {
   border-color: #e42440;
   box-shadow: 0 0 0 0.15rem rgba(228, 36, 64, 0.15);
 }
 
-/* Input Group */
 .add_screen_board .input-group-text {
   background-color: #f1f1f1;
   border-color: #d6d6d6;
   font-size: 14px;
 }
 
-/* Buttons Container */
 .add_screen_buttons {
   display: flex;
   justify-content: flex-end;
@@ -2034,7 +1901,6 @@ nav {
   border-top: 1px solid #eee;
 }
 
-/* Reset Button */
 .reset_screen_btn {
   min-width: 100px;
   height: 42px;
@@ -2050,7 +1916,6 @@ nav {
   background-color: #eeeeee;
 }
 
-/* Add Movie Button */
 .add_screen_btn {
   min-width: 130px;
   height: 42px;
@@ -2069,12 +1934,10 @@ nav {
   transform: translateY(-1px);
 }
 
-/* Small text */
 .add_screen_board small {
   font-size: 12px;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .add_screen_board {
     padding: 20px 15px;
@@ -2127,7 +1990,6 @@ nav {
   font-size: 14px;
 }
 
-/* Form */
 .add_seat_board form {
   background-color: #ffffff;
   padding: 30px;
@@ -2135,7 +1997,6 @@ nav {
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.08);
 }
 
-/* Labels */
 .add_seat_board label {
   display: block;
   margin-bottom: 7px;
@@ -2144,7 +2005,6 @@ nav {
   color: #333;
 }
 
-/* Inputs */
 .add_seat_board .form-control,
 .add_seat_board .form-select {
   min-height: 44px;
@@ -2154,21 +2014,18 @@ nav {
   transition: all 0.2s ease;
 }
 
-/* Focus */
 .add_seat_board .form-control:focus,
 .add_seat_board .form-select:focus {
   border-color: #e42440;
   box-shadow: 0 0 0 0.15rem rgba(228, 36, 64, 0.15);
 }
 
-/* Input Group */
 .add_seat_board .input-group-text {
   background-color: #f1f1f1;
   border-color: #d6d6d6;
   font-size: 14px;
 }
 
-/* Buttons Container */
 .add_seat_buttons {
   display: flex;
   justify-content: flex-end;
@@ -2178,7 +2035,6 @@ nav {
   border-top: 1px solid #eee;
 }
 
-/* Reset Button */
 .reset_seat_btn {
   min-width: 100px;
   height: 42px;
@@ -2194,7 +2050,6 @@ nav {
   background-color: #eeeeee;
 }
 
-/* Add Movie Button */
 .add_seat_btn {
   min-width: 130px;
   height: 42px;
@@ -2213,12 +2068,10 @@ nav {
   transform: translateY(-1px);
 }
 
-/* Small text */
 .add_seat_board small {
   font-size: 12px;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .add_seat_board {
     padding: 20px 15px;
@@ -2244,20 +2097,22 @@ nav {
 
 /* add Seats page css end */
 
-/* selectShow (SelectTheatre) page css */
+/* SelectTheatre page css start */
 
 .selectShow_board {
   background-color: #0b0b0f;
   padding: 10px;
   margin-top: 50px;
+  min-height: 100vh;
 }
 
 .selectShow_board .heading {
   text-align: center;
-  font-size: 32px;
-  /* color: #e42440; */
+  font-size: 24px;
   color: #fff;
   margin-top: 30px;
+  font-weight: 400;
+  text-transform: capitalize;
 }
 
 .select_show_main_frame {
@@ -2275,18 +2130,6 @@ nav {
   padding: 10px 50px;
 }
 
-/* .show_details  {
-  color: #fff;
-  font-size: 16px;
-  font-weight: 400;
-  text-transform: capitalize;
-} */
-
-/* .show_detail_content {
-  display: flex;
-  gap: 15px;
-} */
-
 .show_detail_content .heading {
   font-size: 16px;
   font-weight: 400;
@@ -2303,11 +2146,6 @@ nav {
   color: #fff;
 }
 
-/* .show_details_btn {
-  width: 50%;
-  background-color: red;
-} */
-
 .show_details_btn button {
   border: none;
   color: #fff;
@@ -2323,6 +2161,7 @@ nav {
 
 .selectScreen_board {
   background-color: #0b0b0f;
+  min-height: 100vh;
   padding: 50px 0px;
   margin-top: 45px;
 }
@@ -2330,6 +2169,8 @@ nav {
 .selectScreen_board .heading {
   text-align: center;
   font-size: 24px;
+  font-weight: 400;
+  text-transform: capitalize;
   color: #fff;
   padding: 25px 0px;
 }
@@ -2392,8 +2233,9 @@ nav {
 /* SelectShow Page Css start */
 
 .selectShow_board {
-  min-height: 94vh;
-  padding: 30px 20px 50px;
+  min-height: 100vh;
+  padding: 50px 0px;
+  margin-top: 45px;
   background-color: #0b0b0f;
   color: #ffffff;
   font-family: Arial, sans-serif;
@@ -2615,16 +2457,8 @@ nav {
 .selectSeat_board {
   background-color: #0b0b0f;
   padding: 10px;
-  min-height: 600px;
+  min-height: 100vh;
 }
-
-/* .selectSeat_board p {
-  text-align: center;
-  font-size: 32px;
-  font-weight: 400;
-  text-transform: capitalize;
-  color: #e42440;
-} */
 
 .select_seat_main_frame {
   padding: 25px 0px;
@@ -2641,14 +2475,14 @@ nav {
 
 .seat_home_content h2 {
   color: #e42440;
-  font-size: 28px;
+  font-size: 24px;
   text-transform: capitalize;
   font-weight: 400;
 }
 
 .seat_home_content p {
   color: #fff;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 400;
 }
 
@@ -2667,7 +2501,7 @@ nav {
 
 .seat_feature .category {
   font-size: 24px;
-  color: #e42440;
+  color: #fff;
   font-weight: 400;
   text-transform: capitalize;
 }
@@ -2741,7 +2575,8 @@ nav {
 
 .selectSnacks_board {
   background-color: #0b0b0f;
-  padding: 20px 0px;
+  min-height: 100vh;
+  padding: 35px 0px;
 }
 
 .selectSnacks_board .header {
@@ -2749,8 +2584,8 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 40px;
-  border-radius: 5px;
+  padding: 18px 40px;
+  border-radius: 8px;
   margin-top: 80px;
 }
 
@@ -2876,26 +2711,30 @@ nav {
   padding: 12px 20px;
   font-weight: 400;
   margin-top: 20px;
+  width: 25%;
 }
 
-/* selectPayment page css */
+/* BookingSummary page css */
 
 .selectPayment_outer_board {
   background-color: #0b0b0f;
+  min-height: 100vh;
   padding: 50px;
+  margin-top: 40px;
+}
+
+.selectPayment_outer_board p {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 400;
+  text-transform: capitalize;
+  color: #fff;
+  margin-top: 20px;
 }
 
 .selectPayment_inner_board {
   background-color: #101015;
   border-radius: 8px;
-}
-
-.selectPayment_inner_board p {
-  text-align: center;
-  font-size: 28px;
-  font-weight: 400;
-  text-transform: capitalize;
-  color: #e42440;
 }
 
 .selectPayment_image_box {
@@ -3007,13 +2846,22 @@ nav {
   padding: 12px 20px;
 }
 
-/* makePayment page css start */
+/* Payment page css start */
 
 .payment_page {
   background-color: #0b0b0f;
   color: #ffffff;
   min-height: 100vh;
   margin-top: 80px;
+}
+
+.payment_page .payment_heading {
+  font-size: 24px;
+  font-weight: 400;
+  text-transform: capitalize;
+  color: #fff;
+  text-align: center;
+  margin-top: 10px;
 }
 
 .payment_hero {
@@ -3025,14 +2873,6 @@ nav {
 
 .payment_layout {
   padding: 20px 25px;
-}
-
-.payment_heading {
-  font-size: 28px;
-  font-weight: 400;
-  text-transform: capitalize;
-  color: #fff;
-  text-align: center;
 }
 
 .payment_layout_frame {

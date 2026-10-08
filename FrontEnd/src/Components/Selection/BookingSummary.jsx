@@ -74,8 +74,8 @@ const BookingSummary = () => {
     <>
       <Navbar />
       <div className="container-fluid selectPayment_outer_board">
+        <p>Your Movie Booking details</p>
         <div className="container mt-5 p-2 selectPayment_inner_board">
-          <p>Your Movie Booking details</p>
           <div className="row">
             <div className="col-md-4">
               {showDetails ? (
@@ -94,71 +94,6 @@ const BookingSummary = () => {
               ) : (
                 <p>No image found</p>
               )}
-            </div>
-
-            <div className="col-md-4">
-              <div className="selectPayment_user_booking_details">
-                <p>Selected Seats</p>
-                {selectedSeatDetails && selectedSeatDetails.length > 0 ? (
-                  selectedSeatDetails.map((seat) => (
-                    <div key={seat._id}>
-                      <div className="booking_details">
-                        <span className="heading">SeatNumber :</span>
-                        <span className="content">{seat.seatNumber}</span>
-                      </div>
-                      <div className="booking_details">
-                        <span className="heading">Category :</span>
-                        <span className="content">{seat.seatCategory}</span>
-                      </div>
-                      <div className="booking_details">
-                        <span className="heading">Status :</span>
-                        <span className="content">{seat.status}</span>
-                      </div>
-                      <div className="booking_details">
-                        <span className="heading">Price :</span>
-                        <span className="content"> ₹{seat.price}</span>
-                      </div>
-                    </div>
-                  ))
-                ) : (
-                  <p>No seat selected</p>
-                )}
-              </div>
-            </div>
-
-            <div className="col-md-4">
-              <div className="selectPayment_user_booking_details">
-                <p>Selected Snacks</p>
-                {selectedSnacks?.length > 0 ? (
-                  selectedSnacks.map((snack) => {
-                    const quantity = snackQuantities?.[snack._id] || 0;
-                    const itemTotal = snack.price * quantity;
-
-                    return (
-                      <div key={snack._id}>
-                        <div className="booking_details">
-                          <span className="heading">Name :</span>
-                          <span className="content">{snack.name}</span>
-                        </div>
-                        <div className="booking_details">
-                          <span className="heading">Price :</span>
-                          <span className="content">₹{snack.price}</span>
-                        </div>
-                        <div className="booking_details">
-                          <span className="heading">Quantity :</span>
-                          <span className="content">{quantity}</span>
-                        </div>
-                        <div className="booking_details">
-                          <span className="heading">Total :</span>
-                          <span className="content"> ₹{itemTotal}</span>
-                        </div>
-                      </div>
-                    );
-                  })
-                ) : (
-                  <p>No snacks selected</p>
-                )}
-              </div>
             </div>
 
             <div className="col-md-4">
@@ -246,6 +181,71 @@ const BookingSummary = () => {
                 >
                   Proceed to Payment
                 </button>
+              </div>
+            </div>
+
+            <div className="col-md-4">
+              <div className="selectPayment_user_booking_details">
+                <p>Selected Seats</p>
+                {selectedSeatDetails && selectedSeatDetails.length > 0 ? (
+                  selectedSeatDetails.map((seat) => (
+                    <div key={seat._id}>
+                      <div className="booking_details">
+                        <span className="heading">SeatNumber :</span>
+                        <span className="content">{seat.seatNumber}</span>
+                      </div>
+                      <div className="booking_details">
+                        <span className="heading">Category :</span>
+                        <span className="content">{seat.seatCategory}</span>
+                      </div>
+                      <div className="booking_details">
+                        <span className="heading">Status :</span>
+                        <span className="content">{seat.status}</span>
+                      </div>
+                      <div className="booking_details">
+                        <span className="heading">Price :</span>
+                        <span className="content"> ₹{seat.price}</span>
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                  <p>No seat selected</p>
+                )}
+              </div>
+            </div>
+
+            <div className="col-md-4">
+              <div className="selectPayment_user_booking_details">
+                <p>Selected Snacks</p>
+                {selectedSnacks?.length > 0 ? (
+                  selectedSnacks.map((snack) => {
+                    const quantity = snackQuantities?.[snack._id] || 0;
+                    const itemTotal = snack.price * quantity;
+
+                    return (
+                      <div key={snack._id}>
+                        <div className="booking_details">
+                          <span className="heading">Name :</span>
+                          <span className="content">{snack.name}</span>
+                        </div>
+                        <div className="booking_details">
+                          <span className="heading">Price :</span>
+                          <span className="content">₹{snack.price}</span>
+                        </div>
+                        <div className="booking_details">
+                          <span className="heading">Quantity :</span>
+                          <span className="content">{quantity}</span>
+                        </div>
+                        <div className="booking_details">
+                          <span className="heading">Total :</span>
+                          <span className="content"> ₹{itemTotal}</span>
+                        </div>
+                      </div>
+                    );
+                  })
+                ) : (
+                  <p>No snacks selected</p>
+                )}
               </div>
             </div>
           </div>

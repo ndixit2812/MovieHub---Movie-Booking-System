@@ -39,11 +39,6 @@ const Sidebars = () => {
           Add Theatre
         </Link>
         <hr />
-        {/* <Link to="shows">
-          <FaUsersViewfinder className="admin_board_icon" />
-          Create Shows
-        </Link>
-        <hr /> */}
         <Link to="shows">
           <FaUsersViewfinder className="admin_board_icon" />
           Add Show
@@ -59,6 +54,11 @@ const Sidebars = () => {
           Add Seats
         </Link>
         <hr />
+        <Link to="snacks">
+          <IoFastFoodOutline className="admin_board_icon" />
+          Add Snacks
+        </Link>
+        <hr />
         <Link to="booking">
           <LiaClipboardListSolid className="admin_board_icon" />
           Bookings
@@ -67,11 +67,6 @@ const Sidebars = () => {
         <Link to="payment">
           <GiTakeMyMoney className="admin_board_icon" />
           Payments
-        </Link>
-        <hr />
-        <Link to="snacks">
-          <IoFastFoodOutline className="admin_board_icon" />
-          Add Snacks
         </Link>
         <hr />
         <Link to="feedback">

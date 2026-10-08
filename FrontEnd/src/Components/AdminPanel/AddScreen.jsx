@@ -16,20 +16,36 @@ const AddScreen = () => {
 
   const imageInputRef = useRef(null);
 
-  const getAllTheatres = async () => {
-    try {
-      const response = await axios.get(
-        "http://localhost:5000/api/admin/getTheatres",
-      );
+  // const getAllTheatres = async () => {
+  //   try {
+  //     const response = await axios.get(
+  //       "http://localhost:5000/api/admin/getTheatres",
+  //     );
 
-      setTheatres(response.data.theatres);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  //     setTheatres(response.data.theatres);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   getAllTheatres();
+  // }, []);
 
   useEffect(() => {
-    getAllTheatres();
+    const fetchTheatres = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:5000/api/admin/getAllTheatres",
+        );
+
+        setTheatres(response.data.theatres);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchTheatres();
   }, []);
 
   const handleChange = (e) => {
@@ -75,14 +91,6 @@ const AddScreen = () => {
       console.log(response.data);
       toast.success("Screen added successfully!");
       handleReset();
-      // setScreenData({
-      //   theatre: "",
-      //   screenName: "",
-      //   screenType: "",
-      //   totalSeats: "",
-      //   status: "",
-      // });
-      // setScreenImage(null);
     } catch (error) {
       console.error(error);
       toast.error(error.response?.data?.message || "Failed to add screen");

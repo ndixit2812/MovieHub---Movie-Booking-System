@@ -8,7 +8,6 @@ const Home = () => {
     <>
       <Navbar />
       <div className="home_page">
-        {/* MAIN HERO SECTION */}
         <section className="hero">
           <div className="hero-content">
             <h2>Book Your Movie Tickets</h2>
@@ -26,13 +25,12 @@ const Home = () => {
             />
           </div>
         </section>
-        {/* ================= NOW SHOWING MOVIES ================= */}
+
         <section className="showing_movies">
           <p>
             Now Showing <span>Movies</span>
           </p>
           <div className="showing_movies_board">
-            {/* MOVIE CARD 1 */}
             <div className="movies_card">
               <div className="movie_image">
                 <img
@@ -47,7 +45,6 @@ const Home = () => {
               </div>
             </div>
 
-            {/* MOVIE CARD 2 */}
             <div className="movies_card">
               <div className="movie_image">
                 <img
@@ -62,7 +59,6 @@ const Home = () => {
               </div>
             </div>
 
-            {/* MOVIE CARD 3 */}
             <div className="movies_card">
               <div className="movie_image">
                 <img
@@ -78,13 +74,12 @@ const Home = () => {
             </div>
           </div>
         </section>
-        {/* ================= UP COMING MOVIES ================= */}
+
         <section className="coming_movies">
           <p>
             Up Coming <span>Movies</span>
           </p>
           <div className="showing_movies_board">
-            {/* MOVIE CARD 1 */}
             <div className="movies_card">
               <div className="movie_image">
                 <img
@@ -99,7 +94,6 @@ const Home = () => {
               </div>
             </div>
 
-            {/* MOVIE CARD 2 */}
             <div className="movies_card">
               <div className="movie_image">
                 <img
@@ -114,7 +108,6 @@ const Home = () => {
               </div>
             </div>
 
-            {/* MOVIE CARD 3 */}
             <div className="movies_card">
               <div className="movie_image">
                 <img
@@ -130,13 +123,12 @@ const Home = () => {
             </div>
           </div>
         </section>
-        {/* ================= POPULAR MOVIES ================= */}
+
         <section className="popular_movies">
           <p>
             Popular <span>Movies</span>
           </p>
           <div className="showing_movies_board">
-            {/* MOVIE CARD 1 */}
             <div className="movies_card">
               <div className="movie_image">
                 <img
@@ -151,7 +143,6 @@ const Home = () => {
               </div>
             </div>
 
-            {/* MOVIE CARD 2 */}
             <div className="movies_card">
               <div className="movie_image">
                 <img
@@ -166,7 +157,6 @@ const Home = () => {
               </div>
             </div>
 
-            {/* MOVIE CARD 3 */}
             <div className="movies_card">
               <div className="movie_image">
                 <img
@@ -182,14 +172,13 @@ const Home = () => {
             </div>
           </div>
         </section>
-        {/* =========================THEATRE SECTION================================= */}
+
         <section className="theatre_section">
           <p className="para1">Theatres</p>
           <p className="para2">
             You will find the experience of <span>Multiple Theatres</span>
           </p>
           <div className="theatre_main_board">
-            {/* theatre 1 */}
             <div className="theatre_card">
               <div className="theatre_image">
                 <img
@@ -205,7 +194,6 @@ const Home = () => {
               </div>
             </div>
 
-            {/* theatre 2 */}
             <div className="theatre_card">
               <div className="theatre_image">
                 <img
@@ -221,7 +209,6 @@ const Home = () => {
               </div>
             </div>
 
-            {/* theatre 3 */}
             <div className="theatre_card">
               <div className="theatre_image">
                 <img
@@ -238,11 +225,10 @@ const Home = () => {
             </div>
           </div>
         </section>
-        {/* =========================SNACKS SECTION================================= */}
+
         <section className="about_intro section_padding">
           <div className="container">
             <div className="row align-items-center">
-              {/* IMAGE */}
               <div className="col-lg-6 mb-4 mb-lg-0">
                 <div className="about_image_wrapper">
                   <img
@@ -252,7 +238,7 @@ const Home = () => {
                   />
                 </div>
               </div>
-              {/* SNACK CONTENT */}
+
               <div className="col-lg-6">
                 <div className="about_content">
                   <p className="section_small_title">SNACKS</p>

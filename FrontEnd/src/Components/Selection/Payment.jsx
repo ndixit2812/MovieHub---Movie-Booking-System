@@ -61,10 +61,34 @@ const Payment = () => {
 
         order_id: order.id,
 
-        handler: function (response) {
+        // handler: function (response) {
+        //   console.log("Payment Successful:", response);
+
+        //   alert("Payment Successful!");
+        // },
+
+        handler: async function (response) {
           console.log("Payment Successful:", response);
 
-          alert("Payment Successful!");
+          try {
+            const verifyResponse = await axios.post(
+              "http://localhost:5000/api/payment/verify-payment",
+              {
+                razorpay_order_id: response.razorpay_order_id,
+                razorpay_payment_id: response.razorpay_payment_id,
+                razorpay_signature: response.razorpay_signature,
+              },
+            );
+
+            console.log("Verification Response:", verifyResponse.data);
+
+            if (verifyResponse.data.success) {
+              alert("Payment Verified Successfully!");
+            }
+          } catch (error) {
+            console.log("Payment Verification Error:", error);
+            alert("Payment verification failed.");
+          }
         },
 
         prefill: {
@@ -80,7 +104,6 @@ const Payment = () => {
 
       // 3. Open Razorpay popup
       const razorpay = new window.Razorpay(options);
-
       razorpay.open();
     } catch (error) {
       console.log("Payment Error:", error);
@@ -93,10 +116,10 @@ const Payment = () => {
     <>
       <Navbar />
       <div className="payment_page p-3">
+        <p className="payment_heading">Make The Payment</p>
         <section>
           <div className="container my-3 payment_hero">
             <div className="payment_layout">
-              <p className="payment_heading">Make The Payment</p>
               <div className="payment_layout_frame">
                 <div className="payment_frame1">
                   <p className="payment_title">Moviehub</p>
