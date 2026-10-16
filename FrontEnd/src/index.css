@@ -2961,3 +2961,221 @@ nav {
   padding: 10px 15px;
   width: 75%;
 }
+
+/* MyBooking Page Css Start */
+.booking_page {
+  background-color: #0b0b0f;
+  min-height: 100vh;
+  padding: 30px 0px;
+  margin-top: 40px;
+}
+
+.booking_page .p_r {
+  font-size: 24px;
+  text-transform: capitalize;
+  font-weight: 400;
+  text-align: center;
+  color: #fff;
+  margin-top: 40px;
+}
+
+.booking_main_layout {
+  background-color: #101015;
+  border-radius: 12px;
+  padding: 35px 25px;
+}
+
+/* .booking_movie_box {
+  
+} */
+
+.booking_movie_title h4 {
+  color: #fff;
+  font-size: 20px;
+  text-transform: capitalize;
+  font-weight: 400;
+}
+
+.booking_theatre_title {
+  font-size: 18px;
+  font-weight: 300;
+  text-transform: capitalize;
+  color: #fff;
+}
+
+.booking_theatre_title strong {
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: capitalize;
+  color: #fff;
+}
+
+.booking_screen_title {
+  font-size: 18px;
+  font-weight: 300;
+  text-transform: capitalize;
+  color: #fff;
+}
+
+.booking_screen_title strong {
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: capitalize;
+  color: #fff;
+}
+
+.booking_show_date {
+  font-size: 18px;
+  font-weight: 300;
+  text-transform: capitalize;
+  color: #fff;
+}
+
+.booking_show_date strong {
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: capitalize;
+  color: #fff;
+}
+
+.booking_show_time {
+  font-size: 18px;
+  font-weight: 300;
+  text-transform: capitalize;
+  color: #fff;
+}
+
+.booking_show_time strong {
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: capitalize;
+  color: #fff;
+}
+
+.booking_seats {
+  font-size: 18px;
+  font-weight: 300;
+  text-transform: capitalize;
+  color: #fff;
+}
+
+.booking_seats strong {
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: capitalize;
+  color: #fff;
+}
+
+.booking_snacks {
+  font-size: 18px;
+  font-weight: 300;
+  text-transform: capitalize;
+  color: #fff;
+}
+
+.booking_snacks strong {
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: capitalize;
+  color: #fff;
+}
+
+.booking_ticket_amount {
+  font-size: 18px;
+  font-weight: 300;
+  text-transform: capitalize;
+  color: #fff;
+}
+
+.booking_ticket_amount strong {
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: capitalize;
+  color: #fff;
+}
+
+.booking_snacks_amount {
+  font-size: 18px;
+  font-weight: 300;
+  text-transform: capitalize;
+  color: #fff;
+}
+
+.booking_snacks_amount strong {
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: capitalize;
+  color: #fff;
+}
+
+.booking_convenience_fee {
+  font-size: 18px;
+  font-weight: 300;
+  text-transform: capitalize;
+  color: #fff;
+}
+
+.booking_convenience_fee strong {
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: capitalize;
+  color: #fff;
+}
+
+.booking_total_amount .booking_amount {
+  font-size: 18px;
+  font-weight: 300;
+  text-transform: capitalize;
+  color: #fff;
+}
+
+.booking_total_amount .booking_title {
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: capitalize;
+  color: #fff;
+}
+
+.booking_payment_status span {
+  font-size: 18px;
+  text-transform: capitalize;
+  font-weight: 500;
+  color: rgb(13, 197, 13);
+}
+
+.booking_payment_status strong {
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: capitalize;
+  color: #fff;
+}
+
+.booking_booking_status span {
+  font-size: 18px;
+  text-transform: capitalize;
+  font-weight: 500;
+  color: rgb(13, 197, 13);
+}
+
+.booking_booking_status strong {
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: capitalize;
+  color: #fff;
+}
+
+.booking_booking_id {
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: capitalize;
+  color: #e42440;
+}
+
+.booking_booking_id strong {
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: capitalize;
+  color: #fff;
+}
+
+/* MyBooking Page Css end */

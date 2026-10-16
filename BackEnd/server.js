@@ -5,6 +5,11 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 const app = express();
 
+const adminRoutes = require("./Routes/adminRoutes");
+
+// Mount admin routes
+app.use("/admin", adminRoutes);
+
 //Load environment variable here
 dotenv.config();
 
@@ -34,6 +39,8 @@ app.use("/api/user", require("./Routes/ShowSeatRoutes"));
 app.use("/api/user", require("./Routes/ScreenRoutes"));
 
 app.use("/api/payment", require("./Routes/PaymentRoutes"));
+
+app.use("/api/booking", require("./Routes/BookingRoutes"));
 
 // Routing set up for publically access
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));

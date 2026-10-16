@@ -3,6 +3,7 @@ const {
   createOrder,
   verifyPayment,
 } = require("../Controllers/PaymentController");
+const authMiddleware = require("../Middleware/authMiddleware");
 
 const router = express.Router();
 

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "../Utilities/Navbar";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const Login = () => {
@@ -8,6 +9,8 @@ const Login = () => {
     email: "",
     password: "",
   });
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setLoginData({
@@ -23,18 +26,34 @@ const Login = () => {
         "http://localhost:5000/api/user/login",
         loginData,
       );
-      // console.log(response.data);
 
       if (response.status === 200) {
-        localStorage.setItem("token", response.data.token);
+        const { token, userId, email, role } = response.data;
+
+        localStorage.setItem("token", token);
+        localStorage.setItem("userId", userId);
+        localStorage.setItem("email", email);
+        localStorage.setItem("role", role);
+        localStorage.setItem("userName", response.data.userName);
 
         toast.success(response.data.message || "Login Successfully Done!");
+        setLoginData({
+          email: "",
+          password: "",
+        });
+
+        window.dispatchEvent(new Event("storage"));
+
+        if (role === "admin") {
+          navigate("/admin");
+        } else {
+          navigate("/");
+        }
       }
     } catch (error) {
       console.log(error);
       toast.error(error.response?.data?.message || "Login Failed! ");
     }
-    // console.log(loginData);
   };
 
   return (

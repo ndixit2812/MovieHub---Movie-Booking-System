@@ -8,6 +8,7 @@ import { Link, Outlet, useNavigate } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
 import { LiaHandsHelpingSolid } from "react-icons/lia";
 import { GoX } from "react-icons/go";
+import UserNavbar from "./UserNavbar";
 
 const Users = () => {
   const navigate = useNavigate();
@@ -15,8 +16,9 @@ const Users = () => {
 
   return (
     <>
+      <UserNavbar />
       <div>
-        <div className="user_header">
+        {/* <div className="user_header">
           <nav>
             <div className="first_slot">
               <span className="user_time">{time}</span>
@@ -34,7 +36,7 @@ const Users = () => {
               </button>
             </div>
           </nav>
-        </div>
+        </div> */}
       </div>
       <div className="main_user_board py-0">
         <div className="row">

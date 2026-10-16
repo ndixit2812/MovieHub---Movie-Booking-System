@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "../Utilities/Navbar";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const Register = () => {
@@ -10,6 +11,8 @@ const Register = () => {
     password: "",
     mobile: "",
   });
+
+  const navigate = useNavigate();
 
   const handleChangeFormData = (e) => {
     const { name, value } = e.target;
@@ -31,7 +34,17 @@ const Register = () => {
       );
 
       toast.success(response.data.message || "Registration Successfully Done!");
-      console.log(formData);
+
+      // Clear all input fields
+      setFormData({
+        userName: "",
+        email: "",
+        password: "",
+        mobile: "",
+      });
+
+      // Navigate to Login page
+      navigate("/login");
     } catch (error) {
       toast.error(error.response?.data?.message || "Registration Failed");
     }

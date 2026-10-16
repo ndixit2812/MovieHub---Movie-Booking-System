@@ -4,7 +4,7 @@ const {
   getShowById,
   getShowsByMovieTheatreScreen,
 } = require("../Controllers/ShowController");
-// const authMiddleware = require("../Middleware/authMiddleware");
+const authMiddleware = require("../Middleware/authMiddleware");
 const router = express.Router();
 
 router.post("/addShow", addShow);

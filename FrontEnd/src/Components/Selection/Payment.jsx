@@ -1,10 +1,12 @@
 import React from "react";
 import Navbar from "../../Utilities/Navbar";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Payment = () => {
   const location = useLocation();
+
+  const navigate = useNavigate();
 
   const {
     showId,
@@ -58,19 +60,13 @@ const Payment = () => {
         currency: order.currency,
         name: "MovieHub",
         description: "Movie Ticket Booking",
-
         order_id: order.id,
-
-        // handler: function (response) {
-        //   console.log("Payment Successful:", response);
-
-        //   alert("Payment Successful!");
-        // },
 
         handler: async function (response) {
           console.log("Payment Successful:", response);
 
           try {
+            // 1. Verify Razorpay payment
             const verifyResponse = await axios.post(
               "http://localhost:5000/api/payment/verify-payment",
               {
@@ -80,14 +76,67 @@ const Payment = () => {
               },
             );
 
-            console.log("Verification Response:", verifyResponse.data);
+            if (!verifyResponse.data.success) {
+              throw new Error("Payment verification failed");
+            }
 
-            if (verifyResponse.data.success) {
-              alert("Payment Verified Successfully!");
+            console.log("Payment verified successfully");
+
+            // 2. Get the logged-in user's ID
+            const userId = localStorage.getItem("userId");
+
+            if (!userId) {
+              throw new Error("User ID not found. Please log in again.");
+            }
+
+            // 3. Prepare the selected seats
+            const seats = selectedSeatDetails.map((seat) => ({
+              seatNumber: seat.seatNumber,
+              seatCategory: seat.seatCategory,
+              price: seat.price,
+            }));
+
+            // 4. Prepare selected snacks
+            const snacks = selectedSnacks
+              .filter((snack) => (snackQuantities[snack._id] || 0) > 0)
+              .map((snack) => ({
+                snack: snack._id,
+                quantity: snackQuantities[snack._id],
+              }));
+
+            // 5. Create booking after payment verification
+
+            const bookingResponse = await axios.post(
+              "http://localhost:5000/api/booking/createBooking",
+              {
+                showId,
+                seats,
+                snacks,
+                razorpay_order_id: response.razorpay_order_id,
+                razorpay_payment_id: response.razorpay_payment_id,
+                razorpay_signature: response.razorpay_signature,
+              },
+              {
+                headers: {
+                  Authorization: `Bearer ${localStorage.getItem("token")}`,
+                },
+              },
+            );
+
+            if (bookingResponse.data.success) {
+              console.log("Booking Created:", bookingResponse.data.booking);
+
+              navigate("/myBooking", { replace: true });
             }
           } catch (error) {
-            console.log("Payment Verification Error:", error);
-            alert("Payment verification failed.");
+            console.error(
+              "Payment or Booking Error:",
+              error.response?.data || error.message,
+            );
+
+            alert(
+              "Payment may have succeeded, but booking confirmation failed. Please check your booking before retrying payment.",
+            );
           }
         },
 

@@ -39,6 +39,7 @@ import BookingSummary from "./Components/Selection/BookingSummary";
 import Payment from "./Components/Selection/Payment";
 import SelectTheatre from "./Components/Selection/SelectTheatre";
 import SelectShow from "./Components/Selection/SelectShow";
+import MyBooking from "./Components/Selection/MyBooking";
 
 const App = () => {
   return (
@@ -63,6 +64,7 @@ const App = () => {
         <Route path="/selectSnacks" element={<SelectSnacks />} />
         <Route path="/bookingSummary" element={<BookingSummary />} />
         <Route path="/payment" element={<Payment />} />
+        <Route path="/myBooking" element={<MyBooking />} />
         {/* ********************************************************************************* */}
         <Route path="/admin" element={<Admin />}>
           <Route path="dashboard" element={<Dashboard />} />
